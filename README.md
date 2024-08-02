@@ -22,7 +22,7 @@ This purpose of this repository is to store all my work about the cs50 harvard i
 Started the 2 august of 2024
 
 - [x] Computer science, numeral system (unary and binary) 
-- [ ] ASCII
+- [X] ASCII
 - [ ] Unicode
 - [ ] Representation
 - [ ] Algorithms
