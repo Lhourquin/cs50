@@ -26,7 +26,7 @@ Started the 2 august of 2024
 - [X] Unicode
 - [X] Representation
 - [X] Algorithms
-- [ ] Pseudocode
+- [X] Pseudocode
 - [ ] Articificial Interligence
 - [ ] Scratch
 	* [ ] Hello World
