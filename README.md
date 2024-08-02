@@ -24,8 +24,8 @@ Started the 2 august of 2024
 - [x] Computer science, numeral system (unary and binary) 
 - [X] ASCII
 - [X] Unicode
-- [ ] Representation
-- [ ] Algorithms
+- [X] Representation
+- [X] Algorithms
 - [ ] Pseudocode
 - [ ] Articificial Interligence
 - [ ] Scratch
