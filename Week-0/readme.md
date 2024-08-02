@@ -96,3 +96,15 @@ H	I	!
 * Images are simply collections of RGB values
 * Videos are sequences of many images that are stored together, just like aflipbook
 * Music can be represented through MIDI data (Musical Instrument Digital Interface).
+
+## Algorithms
+
+* Problem-solving is central to computer science and computer programming 
+* Imgaine the basic problem of trying to locate a single name in a phone book
+* How many might you go about this ?
+* One approach could be to simply read from page one to next to the next until reaching the last page
+* Another approach could be to search two page at a time
+* A final and perhaps better approach could be to go to the middle of the phone book and ask, "Is the name I a m looking for to the left or to the right ?" Then, repeat this process, cutting the problem in half and half
+* Each of this approaches could be called algorithms. The speed of each of these algorithms can be pictured as follows in what is called *big-O notation:*
+![Big-O](img/Big-O-notation.png)
+Notice that the first algorithm, highlited in red, has a big-O of n because if there are 100 names in the phone book, it could take up to 100 tries to find the correct name. The second algortihm, where two pages were searched at a time, has a big-O of 'n/2' because we searched twice as fast through the pages. The final algorithm as a big-O of log2n as doubling the problem would only result in one more step to solve the problem
