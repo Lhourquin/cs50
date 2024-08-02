@@ -75,3 +75,13 @@ H	I	!
 ![ASCII values](img/ASCII-values.png)
 * Since binary can only count up to 255 we are limited to the number of characters represented by ASCII
  
+## Unicode 
+
+* As time has rolled on, there are more and more ways to communicate via text
+* Since there were not enough digits in binary to represent all the various characters that could be represented by humans, the *Unicode* standard expanded the number of bits that can be transmitted and understood by computers. Unicode includes not only special characters, but emoji as well
+* THere are emoji that you probabbly use everiday, the following may look familiar to you:
+![Emoji unicode](img/emoji-unicode.png)
+* Computer scientist faced a challenge when wanting to assign various skin tones to each emoji to allow the communication to be futrher personalized. In this case, the creators and contributors of emoji decied that the initial bits would be the structure of the emji itself, followed by skin tone.
+* For example, the unicode for a generic thumbs up is ``U+1F44D``. However, the following represents the same thumbs up with a different skin tone: ``U+1F44D U+1F3FD``.
+* More and more features are being added to the Unicode standard to represent further characters and emoji.
+
