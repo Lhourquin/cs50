@@ -85,3 +85,14 @@ H	I	!
 * For example, the unicode for a generic thumbs up is ``U+1F44D``. However, the following represents the same thumbs up with a different skin tone: ``U+1F44D U+1F3FD``.
 * More and more features are being added to the Unicode standard to represent further characters and emoji.
 
+## Representation
+
+* Zero and ones can be used to represent color
+* Red, green, and blue (called RGB) is a combination of three numbers
+![RGB](img/RGB.png)
+* Taking our previously used 72, 73 and 33 (in ASCII section), wich said HI ! via text, would be interpreted by image renders as a light shade of yellow. The red value would be 72, the green value would ne 73, and the blue would be 33
+![RGB Yellow](img/RGB-Yellow.png)
+* Further, zeros and ones can be used to represent images, videos, and music !
+* Images are simply collections of RGB values
+* Videos are sequences of many images that are stored together, just like aflipbook
+* Music can be represented through MIDI data (Musical Instrument Digital Interface).
