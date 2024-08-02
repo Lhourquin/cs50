@@ -58,3 +58,20 @@ Week 0 is a introduction about some concept and notion really useful to know lik
 ```
 * Therefore, you could say that it would require three bits (the four's place, the two's place, and the one's place) to represent a number as high as seven.
 * Computers generally use eight bits (also known as a *byte*) to represent a number. For example, 00000010 is the number 2 in *binary*, 00010101 is the number 21, 11111111 represent 255.
+
+
+## ASCII
+
+* Just as number are binary paterns of zero ones and zeros, letters are represented using ones and zeros too !
+* Since there is an overlap between the ones and zeros that represents numbers and letters, the *ASCII* standard was created to map specific letters to specific numbers.
+* For instance, the letter A was declared to map the number 65. 01000001 represents the number 65 in binary.
+* If you receveid a text message, the binary under that message might represent the number 72, 73 and 33. Mapping theses out to ASCII, your message would look as follows:
+```
+H	I	!
+72	73	33
+```
+* Thank goodness for standars like ASCII that allows us to agree upon these values !
+* Here is an expanded map of ASCII values:
+![ASCII values](img/ASCII-values.png)
+* Since binary can only count up to 255 we are limited to the number of characters represented by ASCII
+ 
