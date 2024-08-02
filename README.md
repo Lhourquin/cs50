@@ -4,18 +4,18 @@ This purpose of this repository is to store all my work about the cs50 harvard i
 
 ## What I will see on this program ?
 
-* Week 0 - Scratch 
-* Week 1 - C
-* Week 2 - Arrays
-* Week 3 - Algorithms
-* Week 4 - Memory   
-* Week 5 - Data Structures
-* Week 6 - Python
-* Artificial Inteligence
-* Week 7 - SQL
-* Week 8 - HTML, CSS, JavaScript
-* Week 9 - Flask
-* Week 10 - Cybersecurity
+* [ ] Week 0 - Scratch 
+* [ ] Week 1 - C
+* [ ] Week 2 - Arrays
+* [ ] Week 3 - Algorithms
+* [ ] Week 4 - Memory   
+* [ ] Week 5 - Data Structures
+* [ ] Week 6 - Python
+* [ ] Artificial Inteligence
+* [ ] Week 7 - SQL
+* [ ] Week 8 - HTML, CSS, JavaScript
+* [ ] Week 9 - Flask
+* [ ] Week 10 - Cybersecurity
 
 ## Week 0 (current)
 
@@ -23,7 +23,7 @@ Started the 2 august of 2024
 
 - [x] Computer science, numeral system (unary and binary) 
 - [X] ASCII
-- [ ] Unicode
+- [X] Unicode
 - [ ] Representation
 - [ ] Algorithms
 - [ ] Pseudocode
