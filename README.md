@@ -28,7 +28,7 @@ Started the 2 august of 2024
 - [X] Algorithms
 - [X] Pseudocode
 - [X] Articificial Interligence
-- [ ] Scratch
+- [X] Scratch
 	* [ ] Hello World
 	* [ ] Hello, You
 	* [ ] Meow and Abstraction
