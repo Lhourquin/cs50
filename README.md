@@ -17,11 +17,11 @@ This purpose of this repository is to store all my work about the cs50 harvard i
 * Week 9 - Flask
 * Week 10 - Cybersecurity
 
-## Week 1 (current)
+## Week 0 (current)
 
 Started the 2 august of 2024
 
-- [x] computer science, numeral system (unary and binary) 
+- [x] Computer science, numeral system (unary and binary) 
 - [ ] ASCII
 - [ ] Unicode
 - [ ] Representation
