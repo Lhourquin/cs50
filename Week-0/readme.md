@@ -151,3 +151,16 @@ Thses building blocks are the funcdamentals of programming
 ```
 Notice how just to program a handful of interactions, many lines of code would be required. How many lines of code would be reqauired for thousands or tens of thousands of possible interactions ?
 * `large language models` look at patterns in large blocks of loanguage. Such language models attempt to create a best guess of what words come after one aonther or alongside one another
+
+## Scratch 
+
+* *Scratch* is a visual programming language developed by MIT.
+* Scratch utilize the same essential coding building block that we covered eralier in this lecture
+* Scratch is a great way to get into computer programming because it allows you to play with these building blocks in a visual manner, not having to be concerned about the syntax of curly braces, semicolons, parentheses, and the like
+* Scratch IDE (Integrated development environment) looks like the following:
+![Scratch IDE](img/Scratch-IDE.png)
+* Notice that on the left, there are *building blocks* that you can use in your programming. To the immediate right of the building blocks, there is the area to which you can drag blocks to build a program. To theright of that, you see the *stage* where a cat stands. The stage is where your programming comes to life.
+* Scratch operates on a coordinate system as follows:
+![Scratch coordinate system](img/Scratch-coordinate-system.png)
+Notice that the center of the stage is at coordinate (0,0). Right now, the cat's position is at that same position.
+
