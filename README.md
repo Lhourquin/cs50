@@ -27,7 +27,7 @@ Started the 2 august of 2024
 - [X] Representation
 - [X] Algorithms
 - [X] Pseudocode
-- [ ] Articificial Interligence
+- [X] Articificial Interligence
 - [ ] Scratch
 	* [ ] Hello World
 	* [ ] Hello, You
