@@ -135,3 +135,19 @@ Notice that the first algorithm, highlited in red, has a big-O of n because if t
 * Finally, notice how thses statements like "go back to line 3". We call these *loops*
 Thses building blocks are the funcdamentals of programming
 * In the context of *Scratch*, which is discusses below, we will use each of the above basic building blocks of programming
+
+## Artificial Interligence
+
+* Consider how we can utilize the building blocks above to start creating our own artificial intelligence. Look at the following pseudocode:
+```
+1 If student says hello
+2 	Say hello back
+3 Else if student says goodbye
+4 	Say goodbye back
+5 Else if student asks how you are
+6 	Say you're well
+7 Else if student asks why 111 in binary is 7 in decimal
+ ...
+```
+Notice how just to program a handful of interactions, many lines of code would be required. How many lines of code would be reqauired for thousands or tens of thousands of possible interactions ?
+* `large language models` look at patterns in large blocks of loanguage. Such language models attempt to create a best guess of what words come after one aonther or alongside one another
