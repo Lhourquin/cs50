@@ -194,3 +194,12 @@ Notice that the `forever` block is utilized such that the `if` block is triggere
 ![Video sensing](img/video-sensing.png)
 * Remember, programming is often a process of trial and error. If you get frustrated, take time to talk yourself through the problem at hand. What is the specific problem that you are working on right now ? What is working ? What is not working ?
 
+## Summing Up
+
+* Problem solving is the essence of the work of computer scientists
+* The course is not simply about programming - this course will introduce you to a new way to learning that you can apply to almost every area of life
+* How numbers, text, images, music, and video are understood by computers
+* The fundamental programming skill of pseudocoding
+* How abstraction will play a role in your future work in this course
+* The basic building block of programming, including functions, conditonals, loops, and variable
+* How build project in Scratch
