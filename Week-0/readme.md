@@ -183,3 +183,14 @@ Notice we are defining our own block called `meow`. The function plays the sound
 ![Function with input](img/function-input.png)
 Notice how `n` taken form "mew n times" `n` is passed to the meow function through the `define` block
 * The cat, by the way, we can call a `sprite` - a general term used in game programming for an object or character on the screen with which the player will interact
+
+### Conditionals
+
+* `conditionals` are an building block of programming, where the program looks to see if a specific condition as been met. If a condidion is met, the program does something.
+* To illustrate a conditional, write code as follows:
+![Conditional block](img/conditionnal-block.png)
+Notice that the `forever` block is utilized such that the `if` block is triggered over and over again, such that it can check continuously if the cat is touching the mouse pointer
+* We can modify our program as follows to integrate video sensing:
+![Video sensing](img/video-sensing.png)
+* Remember, programming is often a process of trial and error. If you get frustrated, take time to talk yourself through the problem at hand. What is the specific problem that you are working on right now ? What is working ? What is not working ?
+
