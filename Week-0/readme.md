@@ -164,3 +164,22 @@ Notice how just to program a handful of interactions, many lines of code would b
 ![Scratch coordinate system](img/Scratch-coordinate-system.png)
 Notice that the center of the stage is at coordinate (0,0). Right now, the cat's position is at that same position.
 
+### Meow and abstraction
+
+* Along with pseudocoding, abstraction is an essentiall skill and concept within computer programming
+* Abstraction is the act of simplifiying a problem into smaller and smaller problems
+* For example, if you were hosting a huge dinner for your friends, the problem of having to cook the entire meal could be quite overwhelming! However, if you break down the task of cooking the meal into smaller and smaller tasks (or problems), the big task of creating this delicioous meal feel less chalenging.
+* In programming, even in Scratch, we can see abstraction in action. In your programming area, program as follows:
+![Before abstraction](img/to-many-repetition.png)
+Notice that you are doing the same thing over and over again. Indeed, if you see yourself repeatedly coding the same statements, it's likely the case that you could program more artfully - abstracting away this repetitive code.
+* You can modify your code as follow:
+![Code Modify](img/code-modify.png)
+Notice that the loop does exactly the same things as the previous program did. However, the program is simplified by abstracting away the repetition to a block that repeats the code for us.
+* We can even advance this further by using the `define` block, where you can create your own block (your own function)! 
+Write code as follows:
+![Function](img/function-scratch.png)
+Notice we are defining our own block called `meow`. The function plays the sound `meow`, then waits one second. Below that, you can see that when the green flag is clicked, our mew function is repeated three times.
+* We can even provide a way by which the function can take an input `n` and repeat a number of times:
+![Function with input](img/function-input.png)
+Notice how `n` taken form "mew n times" `n` is passed to the meow function through the `define` block
+* The cat, by the way, we can call a `sprite` - a general term used in game programming for an object or character on the screen with which the player will interact
