@@ -33,7 +33,7 @@ Started the 2 august of 2024
 	* [X] Hello, You
 	* [X] Meow and Abstraction
 	* [X] Conditionals
-	* [ ] Oscartime
-	* [ ] Ivy's Hardest Gane
-	* [ ] Summing up
+	* [X] Oscartime
+	* [X] Ivy's Hardest Gane
+	* [X] Summing up
 
