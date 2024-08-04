@@ -29,9 +29,9 @@ Started the 2 august of 2024
 - [X] Pseudocode
 - [X] Articificial Interligence
 - [X] Scratch
-	* [ ] Hello World
-	* [ ] Hello, You
-	* [ ] Meow and Abstraction
+	* [X] Hello World
+	* [X] Hello, You
+	* [X] Meow and Abstraction
 	* [ ] Conditionals
 	* [ ] Oscartime
 	* [ ] Ivy's Hardest Gane
