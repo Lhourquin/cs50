@@ -32,7 +32,7 @@ Started the 2 august of 2024
 	* [X] Hello World
 	* [X] Hello, You
 	* [X] Meow and Abstraction
-	* [ ] Conditionals
+	* [X] Conditionals
 	* [ ] Oscartime
 	* [ ] Ivy's Hardest Gane
 	* [ ] Summing up
