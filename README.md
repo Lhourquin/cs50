@@ -4,7 +4,7 @@ This purpose of this repository is to store all my work about the cs50 harvard i
 
 ## What I will see on this program ?
 
-* [ ] Week 0 - Scratch 
+* [X] Week 0 - Scratch 
 * [ ] Week 1 - C
 * [ ] Week 2 - Arrays
 * [ ] Week 3 - Algorithms
@@ -19,7 +19,7 @@ This purpose of this repository is to store all my work about the cs50 harvard i
 
 ## Week 0 (current)
 
-Started the 2 august of 2024
+Started the 2 August of 2024, Finished the 6 August 2024
 
 - [x] Computer science, numeral system (unary and binary) 
 - [X] ASCII
