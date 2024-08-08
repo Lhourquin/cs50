@@ -42,7 +42,7 @@ Started the 2 August of 2024, Finished the 6 August 2024
 Started the 8 August of 2024
 
 - [X] Welcome!
-- [ ] Hello World
+- [X] Hello World
 - [ ] Functions
 - [ ] Variables
 - [ ] Conditionals
