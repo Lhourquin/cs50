@@ -1,6 +1,6 @@
 # Week 0 - Scratch
 
-Week 0 is a introduction about some concept and notion really useful to know like what is binary, ASCII, hexadecimal, what is input output with example etc. This class of cs50 is more about course about computer programming, indeed, this class is about problem solving.
+Week 0 is a introduction about some concept and notion really useful to know like what is binary, ASCII, what is input output with example etc. This class of cs50 is more about course about computer programming, indeed, this class is about problem solving.
 
 ## Computer Science
 
