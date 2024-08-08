@@ -17,7 +17,7 @@ This purpose of this repository is to store all my work about the cs50 harvard i
 * [ ] Week 9 - Flask
 * [ ] Week 10 - Cybersecurity
 
-## Week 0 (current)
+## Week 0 - Scratch (Done) [✅]
 
 Started the 2 August of 2024, Finished the 6 August 2024
 
@@ -37,3 +37,19 @@ Started the 2 August of 2024, Finished the 6 August 2024
 	* [X] Ivy's Hardest Gane
 	* [X] Summing up
 
+## Week 1 - C (Current) [☑️]
+
+Started the 8 August of 2024
+
+- [X] Welcome!
+- [ ] Hello World
+- [ ] Functions
+- [ ] Variables
+- [ ] Conditionals
+- [ ] Loops
+- [ ] Operators and Abstraction
+- [ ] Linux and the Command Line
+- [ ] Mario
+- [ ] Comments
+- [ ] Types
+- [ ] Summing Up
