@@ -43,8 +43,8 @@ Started the 8 August of 2024
 
 - [X] Welcome!
 - [X] Hello World
-- [ ] Functions
-- [ ] Variables
+- [X] Functions
+- [X] Variables
 - [ ] Conditionals
 - [ ] Loops
 - [ ] Operators and Abstraction
