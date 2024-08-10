@@ -27,7 +27,7 @@ Started the 2 August of 2024, Finished the 6 August 2024
 - [X] Representation
 - [X] Algorithms
 - [X] Pseudocode
-- [X] Articificial Interligence
+- [X] Artificial Inteligence
 - [X] Scratch
 	* [X] Hello World
 	* [X] Hello, You
@@ -45,7 +45,7 @@ Started the 8 August of 2024
 - [X] Hello World
 - [X] Functions
 - [X] Variables
-- [ ] Conditionals
+- [X] Conditionals
 - [ ] Loops
 - [ ] Operators and Abstraction
 - [ ] Linux and the Command Line
