@@ -341,5 +341,123 @@ void meow(int n){
 ```
 Notice that the prototype has changed to `void meow(int n)`  to show accepts an `int` as its input
 
+## Operators and Abstraction
 
-Source : https://cs50.harvard.edu/x/2024/notes/1/
+* Look the program as follows:
+```C 
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    // Prompt user for x
+    int x = get_int("x: ");
+
+    // Prompt user for y
+    int y = get_int("y: ");
+
+    // Perform addition
+    printf("%i\n", x + y);
+}
+
+```
+Notice how `get_int` function is utilized to obtain an integer from the user twice. One integer is stored in the `int` variable called `x` and another integer int the `int` variable called `y`. Then, the function `printf` print the value of `x + y` , deisgnated by the `%i` symbol.
+* *Operators* refers to the mathematical operations that are supported by your compiler. In C, these mathematicel operators include:
+  * `+` for addition
+  * `-` for substraction
+  * `/` for division
+  * `*` for multiplication
+  * `%` for remainder
+* *Abstraction* is the art of simplifying our code such that it deal with smaller and smaller problems.
+* Expanding on our previously acquired knowledge about functions, we *abstract away* the addition into a function. Modify our code as follows:
+```C 
+#include <cs50.h>
+#include <stdio.h>
+
+int add(int a, int b);
+
+int main(void)
+{
+    // Prompt user for x
+    int x = get_int("x: ");
+
+    // Prompt user for y
+    int y = get_int("y: ");
+
+    // Perform addition
+    int z = add(x, y);
+    printf("%i\n", z);
+}
+
+int add(int a, int b)
+{
+    int c = a + b;
+    return c;
+}
+```
+Notices that the `add` function taker two `int` variables as its input. These values are assigned to `a` and `b` and performs a calculations, returning the value of `c`. Further, notice that the *scope* (or context in which variables exist) of `x` is the `main` function. The variable `c` is only within the scope of the `add` function.
+
+* The design of this program can be further improved as follows:
+```C 
+#include <cs50.h>
+#include <stdio.h>
+
+int add(int a, int b);
+
+int main(void)
+{
+    // Prompt user for x
+    int x = get_int("x: ");
+
+    // Prompt user for y
+    int y = get_int("y: ");
+
+    // Perform addition
+    printf("%i\n", add(x, y));
+}
+
+int add(int a, int b)
+{
+    return a + b;
+}
+```
+Notice that `c` in the `add ` function is removed entirely.
+* While very useful to be able to abstract away to an `add` function, you can also perform addition through *truncation* as follows:
+```C 
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    // Prompt user for x
+    long x = get_long("x: ");
+
+    // Prompt user for y
+    long y = get_long("y: ");
+
+    // Perform addition
+    printf("%li\n", x + y);
+}
+```
+Notice that the addition is performed within the `printf` function.
+* Similarly, division can be performed as follows:
+```C 
+#include <stdio.h>
+#include <cs50.h>
+
+int main(void)
+{
+  //Prompt user for  x
+  int x = get_int("x: ");
+
+  //Prompt user for  y
+  int y = get_int("y: ");
+
+
+  // Divide x by y
+  printf("%i\n", x / y);
+
+}
+```
+Notice that ivision is performed within the `printf` function
+[Source : Week 1](https://cs50.harvard.edu/x/2024/notes/1/)  
