@@ -575,6 +575,23 @@ int main(void)
 
 Notice how the user is continuously prompted for the size until the user's input is 1 or greater.
 
+## Types
+
+* Once of C's shortcommings is the ease by which it managing memory. While C provides you immense control over how memory is utilized, programmgers have to be very aware of potential pitfalls of memory management
+* Types refer to the possible data that can be stored within a variable. For example, a `char` is designed to accommodate a single character like `a` or `2`.
+* Types are very important because each type has specific limits. For example, because of the limits in memory, the highest value of an `int` can be `4294967295` if you attempts to count an `int` higher, *integer overflow* will result where an incorrect value will be stored in this variable.
+* The number of bits limits how high and low we can count.
+* Types with which you might interact during this course include:
+ * `bool`, a Boolean expression of either true or false
+ * `char`, a single character like `a` or `2`
+ * `double`, a floating-point value with more digits than a float
+ * `float`, a floating-point value, or real number with a decimal value
+ * `int`, integers up to a certain size, or number of bits
+ * `long`, integers with more bits, so they can count higher than an int
+ * `string`, a string of characters
+* As you are coding, pay special attention to the types of variables you are using to avoid problems within your code.
+* We examined some examples of disasters that can occur through memory-related errors.
+
 
 
 [Source : Week 1](https://cs50.harvard.edu/x/2024/notes/1/)  
