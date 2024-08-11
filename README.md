@@ -37,9 +37,9 @@ Started the 2 August of 2024, Finished the 6 August 2024
 	* [X] Ivy's Hardest Gane
 	* [X] Summing up
 
-## Week 1 - C (Current) [☑️]
+## Week 1 - C (Current) [✅]
 
-Started the 8 August of 2024
+Started the 8 August of 2024, Finished the 12 August 2024
 
 - [X] Welcome!
 - [X] Hello World
@@ -50,6 +50,6 @@ Started the 8 August of 2024
 - [X] Operators and Abstraction
 - [X] Linux and the Command Line
 - [X] Mario
-- [ ] Comments
-- [ ] Types
-- [ ] Summing Up
+- [X] Comments
+- [X] Types
+- [X] Summing Up
