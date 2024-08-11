@@ -340,3 +340,6 @@ void meow(int n){
 }
 ```
 Notice that the prototype has changed to `void meow(int n)`  to show accepts an `int` as its input
+
+
+Source : https://cs50.harvard.edu/x/2024/notes/1/

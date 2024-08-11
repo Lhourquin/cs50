@@ -203,3 +203,5 @@ Notice that the `forever` block is utilized such that the `if` block is triggere
 * How abstraction will play a role in your future work in this course
 * The basic building block of programming, including functions, conditonals, loops, and variable
 * How build project in Scratch
+
+Source : https://cs50.harvard.edu/x/2024/notes/0/
