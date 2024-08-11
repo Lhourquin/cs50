@@ -47,7 +47,7 @@ Started the 8 August of 2024
 - [X] Variables
 - [X] Conditionals
 - [X] Loops
-- [ ] Operators and Abstraction
+- [X] Operators and Abstraction
 - [ ] Linux and the Command Line
 - [ ] Mario
 - [ ] Comments
