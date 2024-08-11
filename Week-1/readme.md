@@ -207,3 +207,136 @@ int main(void){
 }
 ```
 Notice that single quote is used for only one character, further, notice that `==` ensure that something *is equal* to something else, where a single sign have another function in C. Finally, that `||` effectively mean *or*.
+
+## Loops
+
+* We can use loop building block from Scratch in our C programs
+* We can look at few examples from Scratch. Consider the following code:
+```C 
+int counter = 3;
+  while(counter > 0){
+  printf("Meow\n");
+  counter = counter -1;
+}
+```
+Notice that is  oce assigns the value of `3` to the `counter` variable. Then, the `while` loop says `meow` and removes one from the counter for each iteration. Once the counter is not greater than zero, the loop ends.
+* In your terminal window, type `code meow.c` and write code as follows:
+```C 
+#include <stdio.h>
+
+int main(void){
+  printf("meow\n");
+  printf("meow\n");
+  printf("meow\n");
+}
+```
+Notice this does as intended but has an opportunity for better design.
+* We can improve our program by modifying your code as follows:
+```C 
+#include <stdio.h>
+
+int main(void){
+  int i = 3;
+  while(i > 0){
+    printf("meow\n");
+    i--;
+  }
+}
+```
+Notice that we create an `int` called `i` and assgn it the value `3`. Then, we create a `while` loop that will run as long as `i > 0`. Then, the loop runs, Every time `1` is substracted to `i` using the `i--` statement.
+* Similarly, we can implement a count-up of sorts by modifying our code as follows:
+
+```C 
+#include <stdio.h>
+
+int main(void){
+  int i = 1;
+  while(i <= 3){
+    printf("meow\n");
+    i++;
+  }
+}
+```
+Notice how our counter `1` is started at `1`. Each time the loop runs, it will increment the counter by `1`. Once the counter is greater than `3`. it will stop the loop.
+* Generally, in computer science we count from zero. Best to revise your code as follows:
+
+```C 
+#include <stdio.h>
+
+int main(void){
+  int i = 0;
+  while(i > 3){
+      printf("meow\n");
+      i++;
+  }
+}
+```
+Notice we now count from zero.
+o* Another tool in our toolbox for looping is a `for` loop.
+* You can further improve the design of our `meow.c` program using a `for` loop. Modify your code as follows:
+
+```C 
+#include <stdio.h>
+
+int main(void){
+  for(int i =0; i < 3; i++){
+    printf("meow\n");
+  }
+}
+```
+Notice that the `for` loop include three arguments. The first argument `int i =0` starts our counter at zero. The second argument `i < 3` is the condition that is being checked. Finally, the argument `i++` tells the loop to increment by one each time the loop runs.
+* We can even loop forever using the following code.
+
+```C 
+#include <stdio.h>
+
+int main(void){
+  while(true){
+    printf("meow\n");
+  }
+}
+```
+Notice that `ture` will always be the case. Therefore, the code will always run. You will lose control of your terminal by running this code. You can break from an infinite loop by hitting `Ctrl-C` on your keyboard.
+* While we will provide much more guidance later, once you can create your own function within C as follows:
+```C 
+void meow(void){
+  printf("meow\n");
+}
+```
+The initial `void` means that the function does not return any values. The `(void)` means that no values are being provided to the function.
+* This function can be used in the main function as follows:
+
+```C 
+#include <stdio.h>
+
+void meow(void);
+
+int main(void){
+  for(int i =0; i < 3; i++){
+    meow();
+  }
+}
+
+void meow(void){
+  printf("meow\n");
+}
+```
+Notice how the `meow` function is called with the `meow()` instruction. This is possible because the `meow` function is defined at the bottom of the code and the *prototype* of the function is provided at the top of the code as `void meow(void)` 
+* Your `meow` function can be further modified to accept input:
+
+```C 
+#include <stdio.h>
+
+void meow(void);
+
+int main(void){
+  meow(3);
+}
+//meow some number of time
+void meow(int n){
+  for(int i =0; i < n; i++){
+    printf("meow\n");
+  }
+}
+```
+Notice that the prototype has changed to `void meow(int n)`  to show accepts an `int` as its input
