@@ -592,6 +592,18 @@ Notice how the user is continuously prompted for the size until the user's input
 * As you are coding, pay special attention to the types of variables you are using to avoid problems within your code.
 * We examined some examples of disasters that can occur through memory-related errors.
 
+## Summing Up  
+
+In this lesson, you learned how to apply the building blocks you learned in Scratch to the C programming language. You learned…
+
+  * How to create your first program in C.
+  * Predefined functions that come natively with C and how to implement your own functions.
+  * How to use variables, conditionals, and loops.
+  * How to approach abstraction to simplify and improve your code.
+  * How to approach problem-solving for a computer science problem.
+  * How to use the Linux command line.
+  * How to integrate comments into your code.
+  * How to utilize types and operators.
 
 
 [Source : Week 1](https://cs50.harvard.edu/x/2024/notes/1/)  
