@@ -204,4 +204,4 @@ Notice that the `forever` block is utilized such that the `if` block is triggere
 * The basic building block of programming, including functions, conditonals, loops, and variable
 * How build project in Scratch
 
-Source : https://cs50.harvard.edu/x/2024/notes/0/
+[Source : Week 0](https://cs50.harvard.edu/x/2024/notes/0/)  
