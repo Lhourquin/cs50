@@ -48,8 +48,8 @@ Started the 8 August of 2024
 - [X] Conditionals
 - [X] Loops
 - [X] Operators and Abstraction
-- [ ] Linux and the Command Line
-- [ ] Mario
+- [X] Linux and the Command Line
+- [X] Mario
 - [ ] Comments
 - [ ] Types
 - [ ] Summing Up
