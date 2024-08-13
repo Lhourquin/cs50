@@ -8,10 +8,10 @@ CFLAGS = -I/usr/local/include
 LDFLAGS = -L/usr/local/lib -lcs50
 
 # Nom de l'exécutable
-TARGET = mario
+TARGET = level02
 
 # Les fichiers objets à générer
-OBJS = mario.o
+OBJS = level02.o
 
 # Règle par défaut
 all: $(TARGET)
