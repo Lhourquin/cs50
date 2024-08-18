@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <cs50.h>
 
-int split_tens_number(long number);
+long split_tens_number(long number);
 
-int check_sum(long number, int length);
+long check_sum(long number, int length);
 
 int get_length(long number);
 
@@ -16,22 +16,21 @@ int main(void)
   } while (card_number == 0);
 
   int length = get_length(card_number);
-  int two_first_number = split_tens_number(card_number);
-  printf("card_number: %d\n", card_number);
-  printf("two_first_number: %d\n", two_first_number);
+  printf("card_number: %ld\n", card_number);
+  long two_first_number = split_tens_number(card_number);
+  printf("two_first_number: %ld\n", two_first_number);
   check_sum(card_number, length);
   return 0;
 }
 
-int check_sum(long number, int length){
+long check_sum(long number, int length){
 
-  int sum = 0;
-  int tmp = number;
+  long sum = 0;
+  long tmp = number;
 
   for (int i = 0; i < length; i += 2) {
     while (tmp != 0 ) {
       tmp = tmp / 10; 
-      //printf("%d -> ", tmp);
     } 
     printf("\n");
   }
@@ -49,8 +48,8 @@ int get_length(long number){
   return length;
 }
 
-int split_tens_number(long number){
-  int tens = number / 100;
+long split_tens_number(long number){
+  long tens = number / 100; 
   return tens;
 }
 
