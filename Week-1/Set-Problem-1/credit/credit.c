@@ -1,9 +1,7 @@
 #include <stdio.h>
 #include <cs50.h>
 
-long split_tens_number(long number);
-
-long check_sum(long number, int length);
+long get_two_first_number(long number, int length);
 
 int get_length(long number);
 
@@ -17,25 +15,11 @@ int main(void)
 
   int length = get_length(card_number);
   printf("card_number: %ld\n", card_number);
-  long two_first_number = split_tens_number(card_number);
+  long two_first_number = get_two_first_number(card_number, length);
   printf("two_first_number: %ld\n", two_first_number);
-  check_sum(card_number, length);
   return 0;
 }
 
-long check_sum(long number, int length){
-
-  long sum = 0;
-  long tmp = number;
-
-  for (int i = 0; i < length; i += 2) {
-    while (tmp != 0 ) {
-      tmp = tmp / 10; 
-    } 
-    printf("\n");
-  }
-  return sum;
-}
 
 int get_length(long number){
 
@@ -48,8 +32,12 @@ int get_length(long number){
   return length;
 }
 
-long split_tens_number(long number){
-  long tens = number / 100; 
-  return tens;
+long get_two_first_number(long number, int length){//actually, I have the two last number, not the two first. I think I need to make loop.
+  long dividor = 1;
+  for (int i = 2; i < length; i++) {
+    dividor = dividor * 10;
+  }
+  long two_first_nb = number / dividor; 
+  return two_first_nb;
 }
 
