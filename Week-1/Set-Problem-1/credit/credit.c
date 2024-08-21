@@ -1,11 +1,13 @@
 #include <stdio.h>
 #include <cs50.h>
 
+long get_number_from_begin(long number, int length, int number_of_numbers);
+
 long sum_of_split_tens(long number, int length);
 
 long get_two_first_number(long number, int length);
 
-long sum_of_products(long number, int length);
+long check_sum(long number, int length);
 
 int get_length(long number);
 
@@ -18,11 +20,22 @@ int main(void)
   } while (card_number == 0);
 
   int length = get_length(card_number);
-  printf("card_number: %ld\n", card_number);
+
   long two_first_number = get_two_first_number(card_number, length);
-  printf("two_first_number: %ld\n", two_first_number);
-  long result = sum_of_products(card_number, length);
-  printf("result: %ld\n", result);
+  long result = check_sum(card_number, length);
+  long first_number = get_number_from_begin(two_first_number, get_length(two_first_number), 1);
+
+  if(result != 0){
+    printf("INVALID\n");
+  }else {
+    if (two_first_number == 34 || two_first_number == 37) {
+      printf("AMEX\n") ;
+    } else if (two_first_number == 51 || two_first_number == 52||two_first_number == 53 || two_first_number == 54 ||two_first_number == 55) {
+      printf("MASTERCARD\n");
+    } else if(first_number == 4){
+      printf("VISA\n");
+    }
+  }
   return 0;
 }
 
@@ -47,27 +60,31 @@ long get_two_first_number(long number, int length){
   return two_first_nb;
 }
 
-long sum_of_products(long number, int length){//use them for multiplication?
+long check_sum(long number, int length){//use them for multiplication?
 
   long mod = 0;
   long tmp_number = number;
-  long sum = 0;
+  long sum_of_products = 0;
+  long sum_of_not_multiply = 0;
+  long result = 0;
+
   for (int i = 0; i < length; i++) {
+    mod = tmp_number % 10;
     if ((i % 2) == 1) {
-      mod = tmp_number % 10;
-      //mutliply by 2 the number in this condition and store the result
       long result_of_multiplication = mod * 2;
       int length_of_result_of_multiplication = get_length(result_of_multiplication);
       if(length_of_result_of_multiplication > 1){
-        sum += sum_of_split_tens(result_of_multiplication, length);
+        sum_of_products += sum_of_split_tens(result_of_multiplication, length);
       }else{
-        sum += result_of_multiplication;
+        sum_of_products += result_of_multiplication;
       }
+    }else {
+      sum_of_not_multiply += mod;
     } 
     tmp_number = tmp_number / 10;
   }
-
-  return sum;
+  result = sum_of_products + sum_of_not_multiply; 
+  return result % 10;
 }
 
 //function to split a tens number and make addition with the number, example: input: 12, instruction -> 1 + 2, output: 3.
@@ -81,4 +98,13 @@ long sum_of_split_tens(long number, int length){
     tmp_number = tmp_number / 10;
   }
   return sum;
+}
+
+long get_number_from_begin(long number, int length, int number_of_numbers){
+  long dividor = 1;
+  for (int i = number_of_numbers; i < length; i++) {
+    dividor = dividor * 10;
+  }
+  long two_first_nb = number / dividor; 
+  return two_first_nb;
 }
