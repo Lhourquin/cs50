@@ -5,7 +5,7 @@ This purpose of this repository is to store all my work about the cs50 harvard i
 ## What I will see on this program ?
 
 * [X] Week 0 - Scratch 
-* [ ] Week 1 - C
+* [X] Week 1 - C
 * [ ] Week 2 - Arrays
 * [ ] Week 3 - Algorithms
 * [ ] Week 4 - Memory   
