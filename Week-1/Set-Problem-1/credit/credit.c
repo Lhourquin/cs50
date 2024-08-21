@@ -22,18 +22,32 @@ int main(void)
   int length = get_length(card_number);
 
   long two_first_number = get_two_first_number(card_number, length);
-  long result = check_sum(card_number, length);
   long first_number = get_number_from_begin(two_first_number, get_length(two_first_number), 1);
+  long result = check_sum(card_number, length);
 
   if(result != 0){
     printf("INVALID\n");
   }else {
     if (two_first_number == 34 || two_first_number == 37) {
-      printf("AMEX\n") ;
+      if(length != 15){
+        printf("INVALID\n");
+      }else{
+        printf("AMEX\n") ;
+      }
     } else if (two_first_number == 51 || two_first_number == 52||two_first_number == 53 || two_first_number == 54 ||two_first_number == 55) {
-      printf("MASTERCARD\n");
+      if(length != 16){
+        printf("INVALID\n");
+      }else{
+        printf("MASTERCARD\n");
+      }
     } else if(first_number == 4){
-      printf("VISA\n");
+      if(length == 13 || length == 16){
+        printf("VISA\n");
+      }else{
+        printf("INVALID\n");
+      }
+    } else{
+      printf("INVALID\n");
     }
   }
   return 0;
