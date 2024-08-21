@@ -37,7 +37,7 @@ Started the 2 August of 2024, Finished the 6 August 2024
 	* [X] Ivy's Hardest Gane
 	* [X] Summing up
 
-## Week 1 - C (Current) [✅]
+## Week 1 - C (Done) [✅]
 
 Started the 8 August of 2024, Finished the 12 August 2024
 
@@ -53,3 +53,18 @@ Started the 8 August of 2024, Finished the 12 August 2024
 - [X] Comments
 - [X] Types
 - [X] Summing Up
+
+## Week 2 - Array (Current) ☑️
+
+Started the 21 August of 2024
+
+- [ ] Welcome
+- [ ] Compiling
+- [ ] Debugging
+- [ ] Arrays
+- [ ] Strings
+- [ ] String Length
+- [ ] Command-Line Arguments
+- [ ] Exit Status
+- [ ] Cryptography
+- [ ] Summing Up
