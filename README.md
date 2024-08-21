@@ -54,11 +54,11 @@ Started the 8 August of 2024, Finished the 12 August 2024
 - [X] Types
 - [X] Summing Up
 
-## Week 2 - Array (Current) ☑️
+## Week 2 - Arrays (Current) ☑️
 
 Started the 21 August of 2024
 
-- [ ] Welcome
+- [ ] Welcome!
 - [ ] Compiling
 - [ ] Debugging
 - [ ] Arrays
