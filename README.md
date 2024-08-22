@@ -60,7 +60,7 @@ Started the 21 August of 2024
 
 - [X] Welcome!
 - [X] Compiling
-- [ ] Debugging
+- [X] Debugging
 - [ ] Arrays
 - [ ] Strings
 - [ ] String Length
