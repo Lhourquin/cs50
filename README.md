@@ -58,8 +58,8 @@ Started the 8 August of 2024, Finished the 12 August 2024
 
 Started the 21 August of 2024
 
-- [ ] Welcome!
-- [ ] Compiling
+- [X] Welcome!
+- [X] Compiling
 - [ ] Debugging
 - [ ] Arrays
 - [ ] Strings
