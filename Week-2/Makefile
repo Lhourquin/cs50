@@ -8,10 +8,10 @@ CFLAGS = -I/usr/local/include
 LDFLAGS = -L/usr/local/lib -lcs50
 
 # Nom de l'exécutable
-TARGET = score
+TARGET = string
 
 # Les fichiers objets à générer
-OBJS = score.o
+OBJS = string.o
 
 # Règle par défaut
 all: $(TARGET)

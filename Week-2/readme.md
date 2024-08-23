@@ -259,3 +259,125 @@ float get_average(int length, int array[]){
 ```
 Notice that a new function called `get_average` is declared,. Further, notice that a `const` or constant value of `N` is declared. Most importantly, notice how the `get_average` function takes `int array[]`, which means that the compiler passes an array to this function.
 * Not only can arrays be containers: They can be passed between functions.
+
+## Strings
+
+ * A `string ` i simply an array of type `char`, an array of character.
+ * Considering the following image, you can see how a string is an array of characters that begins with the first character and ends with a special character called `NUL charachter`:
+![string-character](img/string-char.png)
+* Imagine this in decimal, your array would look like the following:
+![array-int](img/array-int.png)
+* Implementing this in your own code, type `code hi.c` in the terminal window and write code as follows:
+```C 
+#include <stdio.h>
+
+int main(void)
+{
+  char c1 = 'H';
+  char c2 = 'I':
+  char c3 = '!';
+  
+  printf("%c%c%c\n", c1, c2, c3);
+}
+```
+Output:
+```
+HI!
+```
+Notice that this will output a string of characters.
+* Similarly, make the following modification to your code:
+
+```C 
+#include <stdio.h>
+
+int main(void)
+{
+  char c1 = 'H';
+  char c2 = 'I':
+  char c3 = '!';
+  
+  printf("%i %i %i\n", c1, c2, c3);
+}
+```
+Output:
+```
+72 73 33
+```
+Notice that is ASCII codes are printed by replacing `%c` with `%i`.
+* To further understand how a `strig` works, revise your code as follows:
+```C 
+#include <stdio.h>
+#include <cs50.h>
+
+int main(void)
+{
+  string s = "HI!";
+
+  printf("%c%c%c\n", s[0], s[1], s[2]);
+
+}
+```
+Output:
+```
+HI!
+```
+Notice how the `printf` statement presents three values for our array called `s`.
+* As before, we can replace `%c` by `%i` as follows:
+
+```C 
+#include <stdio.h>
+#include <cs50.h>
+
+int main(void)
+{
+  string s = "HI!";
+
+  printf("%i %i %i\n", s[0], s[1], s[2]);
+
+}
+```
+Output:
+```
+72 73 33
+```
+Notice that this prints the string's ASCII codes, including NUL.
+* Let's imagine we want to say both `HI!` and `BYE!`. Modify your code as follows:
+
+```C 
+#include <stdio.h>
+#include <cs50.h>
+
+int main(void)
+{
+  string s = "HI!";
+  string t = "BYE!";
+  printf("%s\n", s);
+  printf("%s\n", t);
+
+}
+```
+Output:
+```
+HI!
+BYE!
+
+```
+Notice that two strings are declared and used in this example.
+* You can visualize this as follow:
+![strings char](img/string-char2.png)
+* We can further improve this code. Modify your code as follows:
+```C 
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void){
+  string words[2];
+
+  words[0] = "HI!";
+  words[1] = "BYE!";
+
+  printf("%s\n", words[0]);
+  printf("%s\n", words[1]);
+}
+```
+Notice that both strings are stored within a single array of type `string`.
