@@ -140,3 +140,122 @@ Notice that compiling and running this code still results in a bug.
 * Second, run `debug50 ./buggy0`. You will notice that after the debugger comes to life that a line of code will illuminate in a gold-like color. Quite literally, the code has ***paused*** at this line of code. Notice in the top of your window, you can click the `step over` button and it will keep moving through your code. Notice how the value of `h` increases.
 * While this tool will not show you where your bug is, it will help you slow down and see how your code is running step by step. You can use `step into` as a way to look further into the details of your buggy code.
 * A final form of debugging is called ***rubber duck debugging***. When you are having challenges with your code, consider how speaking out loud to, quite literally, a rubber duck about the code problem. If you'd rather not talk to a small plastic duck, you are welcome to speak to a human near you! They need not understand how to program: Speaking with them is an opportunity for you to speak about your code.
+
+## Arrays 
+
+* In Week 0, we talked about ***data types*** such as `bool`, `int`.`char`, `sting`, etc.
+* Each data type requires a certain amount of system ressources:
+  * `bool` 1 byte
+  * `int` 4 bytes
+  * `long` 8 bytes
+  * `float` 4 bytes
+  * `double` 8 bytes
+  * `char` 1 byte
+  * `string` ? bytes
+* Inside of your computer, you have a finite amount of memory available.
+
+![ram-barret](img/barret-ram.png)
+
+* Physically, on the memory of your computer, you can imagine how specific types of data are stored on your computer. You might imagine that a `char`, which only requires 1 byte of memory, may look as follows:
+
+![1 bytes of memeory in ram barret](img/barret-ram2.png)
+
+* Similarly, an `int` which requires 4 bytes might look as follows:
+
+![4 bytes of memeory in ram barret](img/barret-ram3.png)
+
+* We can create aprogram that explore these concepts. Inside your terminal, type `code scores.c` and write code as follows:
+```C 
+#include <stdio.h>
+
+int main(void)
+{
+  //scrores
+  int score1 = 72;
+  int score2 = 73;
+  int socre3 = 33;
+  
+  //printf average
+  printf("Average: %f\n", (score1 + score2 + score3) / 3.0);
+  
+}
+```
+Notice that the number on the right is a floating point value of `3.0` such that the calculation as a floating point value in the end.
+
+* Running `make scores`, the program runs.
+* You can imagine how these variables are stored in memory:
+
+![variable stored in memory](img/variables-in-memory.png)
+
+* ***Arrays*** are a way of storing data back-to-back in memory such that this data is easily accesible.
+* `int scores[3]`  is a way of telling the compiler to provide you three back-to-back places in memory of size `int` to store three `scores`. Considering our program, you can revise your code as follows:
+```C 
+#include <stdio.h>
+#include <cs50.h>
+
+int main(void){
+  //get scores
+  int scores[3];
+  scores[0] = get_int("Score: ");
+  scores[1] = get_int("Score: ");
+  scores[2] = get_int("Score: ");
+
+  //print average 
+  printf("Average: %f\n: ",(scores[0] + scores[1] + scores[2]) / 3.0 );
+}
+```
+Notice that `scores[0]` examines the value at this location of memory by `indexing into` the arrays called `scores` at location `0` to see what value is stored there.
+* You can see how while the above code works, there is still an opportunity for improving our code. Revise your code as follows:
+```C 
+#include <stdio.h>
+#include <cs50.h>
+
+int main(void)
+{
+  //Get scores
+  int scores[3];
+  for(int i = 0; i < 3; i++)
+  {
+    scores[i] = get_int("Score: ");
+  }
+
+  //print average
+  printf("Average: %f\n", (scores[0] + scores[1] + scores[2]) / 3.0);
+}
+```
+Notice how we index into `scores` by using `scores[i]` where `i` is supplied by the `for` loop.
+* We can simplify of `abstract away` the calculation of the average. Modify your code as follows:
+```C  
+#include <stdio.h>
+#include <cs50.h>
+
+//Constant
+const int N = 3;
+
+//Prototype
+float get_average(int length, int array[]);
+
+int main(void)
+{
+  int scores[N];
+  for (int i = 0; i < N; i++) {
+    scores[i] = get_int("Score: ");
+  }
+  float average = get_average(N, scores);
+  printf("Average: %f\n", average);
+  
+}
+
+float get_average(int length, int array[]){
+  //Calculate the average
+  int sum = 0;
+  for(int i = 0; i < length; i++)
+  {
+    sum += array[i];
+  }
+
+  return sum / length;
+}
+```
+Notice that a new function called `get_average` is declared,. Further, notice that a `const` or constant value of `N` is declared. Most importantly, notice how the `get_average` function takes `int array[]`, which means that the compiler passes an array to this function.
+* Not only can arrays be containers: They can be passed between functions.
