@@ -62,7 +62,7 @@ Started the 21 August of 2024
 - [X] Compiling
 - [X] Debugging
 - [X] Arrays
-- [ ] Strings
+- [X] Strings
 - [ ] String Length
 - [ ] Command-Line Arguments
 - [ ] Exit Status
