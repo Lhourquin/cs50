@@ -381,3 +381,129 @@ int main(void){
 }
 ```
 Notice that both strings are stored within a single array of type `string`.
+
+## String Length 
+
+* A common problem within programming, and perhaps C more specifically, is to discover the length of an array. How could we implement this in code ? Type `code length.c` in the terminal window and code as follows:
+```C 
+#include <stdio.h>
+#include <cs50.h>
+
+int main(void)
+{
+  //Prompt for user's name 
+  string name = get_string("Name: ");
+
+  //Count number of characters up until `\0` (aka NUL)
+  int n = 0;
+  while (name[n] != '\0') {
+    n++;
+  }
+  printf("%i\n", n);
+}
+```
+Notice that this code loops until the `NUL` character is found.
+* This code can be improved by abstracting away the counting as follows:
+```C 
+#include <stdio.h>
+#include <cs50.h>
+
+int string_length(string s);
+
+int main(void)
+{
+  //Prompt for user's name 
+  string name = get_string("Name: ");
+
+  int length = string_length(name);
+  printf("%i\n", length);
+}
+
+int string_length(string s){
+  //Count number of characters up until '\0' (aka NUL)
+  int n = 0;
+  while (s[n] != '\0') {
+    n++;
+  }
+  return n;
+}
+
+```
+* Since this is such a common problem within programming, other programmers have created code in the `string.h` library to find the length of a string. You can find the length of a string by modifying your code as follws:
+```C 
+#include <stdio.h>
+#include <cs50.h>
+#include <string.h>
+
+int main(void)
+{
+  //Prompt for user's name 
+  string name = get_string("Name: ");
+
+  int length = strlen(name);
+  printf("%i\n", length);
+}
+```
+Notice that this code uses the `string.h` library, declared at the top of the file. Further, it uses a function from that library called `strlen`, which calculates the length of the string passed to it.
+* `ctype.h` is another library that is quite useful. Imagine we wanted to create a program that converted all lowercase characters to uppercase ones. In the terminal window type `code uppercase.c` and write code as follows:
+```C 
+#include <stdio.h>
+#include <cs50.h>
+#include <string.h>
+
+int main(void)
+{
+  //Prompt for user's name 
+  string name = get_string("Name: ");
+
+  int length = strlen(name);
+  printf("%i\n", length);
+}
+```
+Notice that this code ***iterates*** through each value in the string. The program looks at each character. If the character is lowercase, it subtract the value 32 from it to convert it to uppercase.
+* Recalling our previous work from last week, you might remember this ASCII values chart:
+![ASCII](img/ASCII.png)
+* When a lowercase character has `32` subtracted from it, it results in an uppercase version of that same character.
+* While the program does what we want, there is an easier way using the `ctype.h` library. Modify your program as follows:
+```C 
+#include <cs50.h>
+#include <ctype.h>
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+  string s = get_string("Before: ");
+  printf("After: ");
+
+  for(int i =0, n = strlen(s); i < n; i++){
+    if(islower(s[i])){
+      printf("%c",toupper(s[i]));
+    }else {
+      printf("%c", s[i]);
+    }
+  }
+  printf("\n");
+}
+```
+Notice that the program iterates through each character of the string. The `toupper` function is passed `s[i]`. Each character (if lowercase) is converted to uppercase.
+* It's worth mentioning that `toupper` automatically knows to uppercase only lowercase characters. Hence, your code can be simplified as follows:
+```C 
+#include <cs50.h>
+#include <ctype.h>
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+  string s = get_string("Before: ");
+  printf("After: ");
+
+  for(int i =0, n = strlen(s); i < n; i++){
+    printf("%c",toupper(s[i]));
+  }
+  printf("\n");
+}
+```
+Notice that this code uppercase a string using the `ctype` library.
+* You can read about all the capabilities of the `ctype` library on the [Manual Pages](https://manual.cs50.io/#ctype.h)

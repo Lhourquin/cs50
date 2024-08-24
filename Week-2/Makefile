@@ -8,10 +8,10 @@ CFLAGS = -I/usr/local/include
 LDFLAGS = -L/usr/local/lib -lcs50
 
 # Nom de l'exécutable
-TARGET = string
+TARGET = uppercase
 
 # Les fichiers objets à générer
-OBJS = string.o
+OBJS = uppercase.o
 
 # Règle par défaut
 all: $(TARGET)
