@@ -554,6 +554,40 @@ Notice that this program knows bot `argc`, the number of command line arguments,
 If we look what is on `argv[0]` we find the name of the executable file, in our case, is `./greet`, where is the one arguments command line `argc` equal to `1` if we just make the command `./greet` in the terminal window.
 * Therefore, using the syntax of this program, executing `./greet David` would result int the program saying `Hello, David`.
 
+## Exit Status 
+
+* When s program ens, a special exit code is provided to the computer
+* When a program exits without error, a status code of `0` is provided to the computer. Often, when an error occurs that results in the program ending, a status of `1` is provided by the computer.
+* You could write a program as follows that illustrates this by typing `code status.c` and writing code as follows:
+```C 
+#include <stdio.h>
+#include <cs50.h>
+
+int main(int argc, string argv[]){
+  if(argc != 2){
+    printf("Missing the command-line argument\n");
+    return 1;
+  }
+  printf("Hello, %s\n", argv[1]);
+  return 0;
+}
+
+
+```
+Output:
+```
+    ~/cs50/Week-2    main !2 ?3 ─────────────────────────────────────────────────────────────────────────────── 14:27:44  
+❯ ./status 
+Missing the command-line argument
+
+    ~/cs50/Week-2    main !2 ?3 ─────────────────────────────────────────────────────────────────────────────── 14:27:47  
+❯ ./status Lucalhost
+Hello, Lucalhost
+
+```
+Notice that if you fail to provide `./status Lucalhost`, you will get exit status of `1`. However, if you do provide `./status Lucalhost`, you will get an exit status of `0`.
+* You can imagine how you might use portions of the above program to check if a user provided the correct number of command-line arguments.
+
 ## Cryptography
 
 * Cryptography is the art of ciphering and deciphering a message
