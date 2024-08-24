@@ -507,3 +507,49 @@ int main(void)
 ```
 Notice that this code uppercase a string using the `ctype` library.
 * You can read about all the capabilities of the `ctype` library on the [Manual Pages](https://manual.cs50.io/#ctype.h)
+
+## Command-line Arguments 
+
+* `Command-line arguments`  are those arguments that are passed to your program at the command line. For example, all those statements you typed after `clang` are considered command line arguments. You can use these arguments in your own programs!
+* I your terminal window, type `code greet.c` and write code as follows:
+```C 
+#include <stdio.h>
+#include <cs50.h>
+
+int main(void)
+{
+  string answer = get_string("What's your name ? ");
+
+  printf("Hello %s\n", answer);
+}
+
+```
+Notice that this says `hello` to the user.
+* Still, would it not be nice to be able to take arguments before the program even runs ? Modify your code as folows:
+```C 
+#include <stdio.h>
+#include <cs50.h>
+
+int main(int argc, string argv[])
+{
+  if(argc == 2){
+    printf("Hello %s\n", argv[1]);
+  }else {
+    printf("Hello, world\n");
+  }
+}
+```
+Output:
+```
+      ~/cs50/Week-2    main !2 ?3 ─────────────────────────────────────────────────────────────────────────────── 13:44:29  
+❯ ./greet 
+Hello, world
+
+    ~/cs50/Week-2    main !2 ?3 ─────────────────────────────────────────────────────────────────────────────── 13:44:37  
+❯ ./greet Lucalhost
+Hello Lucalhost
+
+```
+Notice that this program knows bot `argc`, the number of command line arguments, and `argv` which is an array of the characters passed as arguments at the command line.
+If we look what is on `argv[0]` we find the name of the executable file, in our case, is `./greet`, where is the one arguments command line `argc` equal to `1` if we just make the command `./greet` in the terminal window.
+* Therefore, using the syntax of this program, executing `./greet David` would result int the program saying `Hello, David`.
