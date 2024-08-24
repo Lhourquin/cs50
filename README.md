@@ -64,7 +64,7 @@ Started the 21 August of 2024
 - [X] Arrays
 - [X] Strings
 - [X] String Length
-- [ ] Command-Line Arguments
+- [X] Command-Line Arguments
 - [ ] Exit Status
 - [ ] Cryptography
 - [ ] Summing Up
