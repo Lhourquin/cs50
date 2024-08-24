@@ -553,3 +553,13 @@ Hello Lucalhost
 Notice that this program knows bot `argc`, the number of command line arguments, and `argv` which is an array of the characters passed as arguments at the command line.
 If we look what is on `argv[0]` we find the name of the executable file, in our case, is `./greet`, where is the one arguments command line `argc` equal to `1` if we just make the command `./greet` in the terminal window.
 * Therefore, using the syntax of this program, executing `./greet David` would result int the program saying `Hello, David`.
+
+## Cryptography
+
+* Cryptography is the art of ciphering and deciphering a message
+* `plaintext` and a `key` are provided to a `cipher`, resulting in a ciphered text.
+
+![Cryptography](img/cryptography.png)
+
+* The key is a special arguments passed to the cipher along with the plaintext. The cipher uses the key to make decisions about how its cipher algorithm.
+
