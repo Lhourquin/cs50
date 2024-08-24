@@ -66,5 +66,5 @@ Started the 21 August of 2024
 - [X] String Length
 - [X] Command-Line Arguments
 - [X] Exit Status
-- [ ] Cryptography
-- [ ] Summing Up
+- [X] Cryptography
+- [X] Summing Up
