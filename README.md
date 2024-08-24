@@ -63,7 +63,7 @@ Started the 21 August of 2024
 - [X] Debugging
 - [X] Arrays
 - [X] Strings
-- [ ] String Length
+- [X] String Length
 - [ ] Command-Line Arguments
 - [ ] Exit Status
 - [ ] Cryptography
