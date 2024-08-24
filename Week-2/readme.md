@@ -597,3 +597,16 @@ Notice that if you fail to provide `./status Lucalhost`, you will get exit statu
 
 * The key is a special arguments passed to the cipher along with the plaintext. The cipher uses the key to make decisions about how its cipher algorithm.
 
+## Summing Up 
+
+In this lesson you learned more details about compiling and how data is stored within a computer. Specifically you learned...
+  * Generally, how a compiler works
+  * How to debug your code using four methods
+  * How to utilize arrays within your code
+  * How arrays store data in back to back portions of memory
+  * How strings are simply arrays of characters
+  * How to interact with arrays in your code
+  * How command-line arguments can be passed to your programs
+  * The basic building-blocks of cryptography
+
+[Source : Week 2](https://cs50.harvard.edu/x/2024/notes/2/)  
