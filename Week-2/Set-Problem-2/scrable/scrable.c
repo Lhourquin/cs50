@@ -18,12 +18,8 @@ int main(void)
   score_player_2 = check_score(player_2);
 
   if (score_player_1 > score_player_2) {
-    printf("%d\n", score_player_1);
-    printf("%d\n", score_player_2);
     printf("Player 1 wins!\n");
   }else if (score_player_2 > score_player_1) {
-    printf("%d\n", score_player_1);
-    printf("%d\n", score_player_2);
     printf("Player 2 wins!\n");
   } else {
     printf("Tie!\n");
@@ -65,18 +61,17 @@ int check_score(string response)
   points[25] = 10;
 
   int score = 0;
-
+  int length = strlen(alphabet);
   int i = 0;
   while (response[i] != '\0') {
-    for (int j = 0; j < strlen(alphabet); j++) {
+    for (int j = 0; j < length;j++) {
       if(toupper(response[i]) == alphabet[j]){
         score += points[j];
-        printf("%c: %d -> ",alphabet[j], points[j]);
+        break;
       }
     }
     i++;
   }
 
-  printf("score: %d\n", score);
   return score;
 }
