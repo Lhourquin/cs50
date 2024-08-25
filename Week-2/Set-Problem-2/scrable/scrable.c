@@ -34,9 +34,9 @@ int main(void)
 
 int check_score(string response)
 {
-  string alphabet = "ABCDEFGHIJKLMNOPQRSTUV";
+  string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-  int points[22];
+  int points[26];
   points[0] = 1;
   points[1] = 3;
   points[2] = 3;
@@ -59,6 +59,10 @@ int check_score(string response)
   points[19] = 1;
   points[20] = 1;
   points[21] = 4;
+  points[22] = 4;
+  points[23] = 8;
+  points[24] = 4;
+  points[25] = 10;
 
   int score = 0;
 
