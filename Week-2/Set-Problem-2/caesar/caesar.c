@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
     return 1;
   }else {
     int key = atoi(argv[1]);
-    if(key == 0){
+    if(key <= 0){
       printf("Usage: %s key\n", argv[0]);
       return 1;
     }else {
@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
 }
 
 string encrypt_plaintext(string plaintext, int key){
-  string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";//should be replaced by ascii
 
   int length = strlen(alphabet);
 
