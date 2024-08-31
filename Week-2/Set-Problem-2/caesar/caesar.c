@@ -13,12 +13,17 @@ int main(int argc, char *argv[])
     return 1;
   }else {
     //TODO check for letter in arg with arguments
+    for (int i = 0;i < strlen(argv[1]);i++) {
+      if(!isdigit(argv[1][i])){
+        printf("Usage: %s key\n", argv[0]);
+        return 1;
+      }
+    }
     int key = atoi(argv[1]);
     if(key <= 0){
       printf("Usage: %s key\n", argv[0]);
       return 1;
     }else {
-      printf("key: %d\n", key );
       string plaintext = get_string("plaintext: ");
       string ciphertext = encrypt_plaintext(plaintext, key);
       printf("ciphertext: %s\n", ciphertext);
