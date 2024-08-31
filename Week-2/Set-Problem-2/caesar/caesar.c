@@ -27,34 +27,96 @@ int main(int argc, char *argv[])
       //make operation with modulo to get cipher char
       printf("key: %d\n", key );
       string plaintext = get_string("plaintext: ");
-      string encrypted_text = encrypt_plaintext(plaintext, key);
-      printf("ciphertext: %s\n", encrypted_text);
+      string ciphertext = encrypt_plaintext(plaintext, key);
+      printf("ciphertext: %s\n", ciphertext);
     }
   } 
-  
 
-    
   return 0;
 }
 
 string encrypt_plaintext(string plaintext, int key){
   string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";//should be replaced by ascii
-
+  int lowercase_alphabet[26] = {
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90
+  };
+    int uppercase_alphabet[26] = {
+    97,
+    98,
+    99,
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+  };
   int length = strlen(alphabet);
 
-  string encrypted_text[length];
+  string ciphertext = plaintext;
 
   int i = 0;
-  while (plaintext[i] != '\0') {
-    printf("plaintext[i]: %c\n", plaintext[i]);
-    for (int j = 0; j < length;j++) {
-      if(toupper(plaintext[i]) == alphabet[j]){
-        int cipher_char = (j + key) % 26;
-        plaintext[i] = tolower(alphabet[cipher_char]);
-        break;
+  while (ciphertext[i] != '\0') {
+    if(ciphertext[i] >= 65 && ciphertext[i] <= 90){
+      for (int j = 0; j < length;j++) {
+        if(ciphertext[i] == lowercase_alphabet[j]){
+          int cipher_char_idx = (j + key) % 26;
+          ciphertext[i] = lowercase_alphabet[cipher_char_idx];
+          break;
+        }
+      }
+    }else if (ciphertext[i] >= 97 && ciphertext[i] <= 122) {
+      for (int j = 0; j < length;j++) {
+        if(ciphertext[i] == uppercase_alphabet[j]){
+          int cipher_char_idx = (j + key) % 26;
+          ciphertext[i] = uppercase_alphabet[cipher_char_idx];
+          break;
+        }
       }
     }
     i++;
   }
-  return plaintext;
+  return ciphertext;
 }
