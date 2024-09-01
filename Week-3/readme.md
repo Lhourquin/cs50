@@ -45,3 +45,55 @@ Return false
 ```
 
 Notice that the above is still not code, but it is a pretty close approximation of what the final code might look like.
+
+## Binary Search
+
+* ***Binary Search*** is another ***search algorithm*** that could be employed in our tasks of finding the 50.
+* Assuming that the values within the lockers have been arranged from smallest to largest, the pseudocode for binary search would appear as follows:
+
+```
+If no doors left
+  Return false
+If 50 is behind middle door
+  Return true
+Else if 50 < middle door
+  Search left half
+Else if 50 > middle door
+  Search right half
+```
+
+* Using the nomenclature of code, we can further modify our algorithm as follows:
+
+```
+If no doors left  
+  Return false
+If 50 is behind doors[middle]
+  Return true
+Else if 50 < doors[middle]
+  Search doors[0] through doors[middle - 1]
+Else if 50 > doors[middle]
+  Search doors[middle + 1] through doors[n -1]
+```
+
+Notice, looking at this approximation of code, you can nearly imagine what this might look like in actual code.
+
+## Running Time
+
+* ***Running time*** involves an analysis using ***big O*** notation. Take a look at the following graph:
+![big-O](img/big-o.png)
+
+* Rather than being ultra-specific about the mathematical efficiency of an algorithm, computer scientist discuss efficiency in terms of ***the order of*** various running times.
+* In the above graph, the first algorithm is ***O(n)*** or ***in the order of n***. The second is in ***O(n)*** as well. The third is in ***O(log n)***.
+* It's the shape of the curve that allows the efficiency of an algorithm. Some common running times we see are:
+  * O(n^2)
+  * O(n \log n)
+  * O(n)
+  * O(\log n)
+  * O(1)
+* Of the running times above, O(n^2) is considered the worst running time, O(1) is the fastest.
+* Linear search was of order O(n) because it could take ***n*** steps in the worst case to run.
+* Binary search was of order O(\log n) because it would take fewer and fewer steps to run even in the worst case.
+* Programmers are interested in both the worst case, or ***upper bound***, and best case, or ***lower bound***.
+* The \Omega symbol is used to denote the best case of an algorithm, such as \Omega(\log n).
+* The \Theta symbol is used to denote where the upper bound and lower bound are the same, where the best case and the worst case running times are the same.
+* As you continue to develop your knowledge in computer science, you will explore these topics in more detail in future courses.
