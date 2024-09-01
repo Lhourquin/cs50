@@ -75,8 +75,8 @@ Started the 31 August of 2024
 
 * [X] Welcome!
 * [X] Linear Search
-* [] Binary Search
-* [] Running Time
+* [X] Binary Search
+* [X] Running Time
 * [] search.c
 * [] Data Structures
 * [] Sorting
