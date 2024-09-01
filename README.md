@@ -6,7 +6,7 @@ This purpose of this repository is to store all my work about the cs50 harvard i
 
 * [X] Week 0 - Scratch
 * [X] Week 1 - C
-* [ ] Week 2 - Arrays
+* [X] Week 2 - Arrays
 * [ ] Week 3 - Algorithms
 * [ ] Week 4 - Memory
 * [ ] Week 5 - Data Structures
@@ -68,3 +68,19 @@ Started the 21 August of 2024, Finished 31 August of 2024
 * [X] Exit Status
 * [X] Cryptography
 * [X] Summing Up
+
+## Week 2 - Arrays (Current) [✅]
+
+Started the 31 August of 2024
+
+* [X] Welcome!
+* [X] Linear Search
+* [] Binary Search
+* [] Running Time
+* [] search.c
+* [] Data Structures
+* [] Sorting
+* [] Bubble Sort
+* [] Recursion
+* [] Merge Sort
+* [] Summing Up
