@@ -255,3 +255,30 @@ For i from 0 to n-1
 ```
 
 * This could be simplified to n(n-1)/2 or, more simply, O(n^2).
+
+## Bubble Sort
+
+* ***Bubble sort*** is another sorting algorithm that works by repeatedly swapping elements to "bubble" larger elements to the end.
+* The pseudocode for bubble sort is:
+
+```
+Repeat n-1 times 
+  For i from 0 to n-2
+    If numbers[i] and numbers[i+1] out of order
+      Swap them
+  If no swaps
+    Quit
+```
+
+* As we further sort the array, we know more and more of it becomes sorted, so we only need to look at the pairs of numbers that haven't been sorted yet.
+* Analyzing selection sort, we made only seven comparisons. Representing this mathematically, where ***n*** represents the number of cases, it could be said that selection sort can be analyzed as:
+
+```
+(n -1) + (n -2) + (n - 3) + ... + 1
+```
+
+or more simply n^2/2 - n/2.
+
+* Considering that mathematical analysis, n^2 is really the most influential factor in determining the efficiency of this algorithm. Therefore, selection sort is considered to be of the order of O(n^2) in the worst case where all values are unsorted. Even when all values are sorted, it will take the same number of steps. Therefore, the best case can be noted as \Omega(n^2). Since both the upper bound and lower bound cases are the same, the efficiency of this algorithm as a whole can be regarded as \Theta(n^2).
+* Analyzing bubble sort, the worst case is O(n^2). The best case is \Omega(n).
+* You can [visualize](https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html) a comparison of these algorithms.
