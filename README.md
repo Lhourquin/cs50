@@ -80,7 +80,7 @@ Started the 31 August of 2024
 * [X] search.c
 * [X] Data Structures
 * [X] Sorting
-* [] Bubble Sort
+* [X] Bubble Sort
 * [] Recursion
 * [] Merge Sort
 * [] Summing Up
