@@ -403,3 +403,75 @@ void draw(int n){
 ```
 
 Notice the ***base case*** will ensure the code does not run forever. The line `if (n <= 0)` terminates the recursion because the problem has been solved. Every time `draw` calls itself by `n-1`. At some point, `n-1` will equal `0`, resulting in the `draw` function returning and the program will end.
+
+## Merge Sort
+
+* We can now leverage recursion in our quest for a more efficient sort algorithm and implement what is called ***merge sort***, a very efficient sort algorithm.
+* The pseudocode for merge is quite short:
+
+```
+If only one number 
+  Quit 
+Else 
+  Sort left half of number
+  Sort right half of number 
+  Merge sorted halves
+```
+
+* Consider the following list of numbers:
+
+```
+6341
+```
+
+* First, merge sort will now split the numbers down the middle (or as close as it can get) ans sort the left half of numbers.
+
+```
+63|41
+```
+
+* Third, merge sort would look at these numbers on the left and ask, "is this one number?" Since the answer is no, it would then split the numbers on the left down the middle.
+
+```
+6|3
+```
+
+* Fourth, merge sort will again ask, "Is this one number?" The answer is yes this time! Therefore, it will quit this task and return to the last task at this point:
+
+```
+63|41
+```
+
+Fifth, merge sort will sort the numbers on the left.
+
+```
+36|41
+```
+
+* Now, we return to where we left off in the pseudocode now that the left side has been sorted. A similar process of steps 3-5 will occur with the right-hand numbers. This will result in:
+
+```
+36|14
+```
+
+* Both halves are now sorted. Finally, the algorithm will merge both sides. It will look at the first number on the left and the first number on the right. It will put the smaller number first, then the second smallest. The algorithm will repeat this for all numbers, resulting in:
+
+```
+1346
+```
+
+* Merge sort is complete, and the program quits.
+* Merge sort is a very efficient sort algorithm with a worst case of O(n log n). The best case is still \Omega(n log n) because the algorithm still must visit each place in the list, Therefore, merge sort is also \Theta(n log n) since the best case and worst case are the same.
+* A final [visualization](https://www.youtube.com/watch?v=ZZuD6iUe3Pc) was shared.
+
+## Summing Up
+
+In this lesson, you learned about algorithmic thinking and building your own data types. Specifically, you learned...
+
+* Algorithms.
+* Big ***O*** notation.
+* Binary Search and Linear Search.
+* Various sort algorithms, including bubble sort, selection sort, and merge sort.
+* Recursion.
+
+[Source: Week 3](https://cs50.harvard.edu/x/2024/notes/3/#binary-search)
