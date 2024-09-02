@@ -81,6 +81,6 @@ Started the 31 August of 2024
 * [X] Data Structures
 * [X] Sorting
 * [X] Bubble Sort
-* [] Recursion
+* [X] Recursion
 * [] Merge Sort
 * [] Summing Up
