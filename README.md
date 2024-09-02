@@ -79,7 +79,7 @@ Started the 31 August of 2024
 * [X] Running Time
 * [X] search.c
 * [X] Data Structures
-* [] Sorting
+* [X] Sorting
 * [] Bubble Sort
 * [] Recursion
 * [] Merge Sort
