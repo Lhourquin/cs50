@@ -82,5 +82,5 @@ Started the 31 August of 2024
 * [X] Sorting
 * [X] Bubble Sort
 * [X] Recursion
-* [] Merge Sort
-* [] Summing Up
+* [X] Merge Sort
+* [X] Summing Up
