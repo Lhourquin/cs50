@@ -229,3 +229,29 @@ int main(void){
 ```
 
 Notice that the code begins with `typedef struct` where a new datatype called `Person` is defined. Inside a `Person` is a string called `name` and a `string` called number. In the `main` function, begin by creating an array called `people` that is of type `Person` that is size of 3. Then, we update the names and phone numbers of the two people in our `people` array. Most important, notice how the ***dot notation*** such as `people[0].name` allows us to access the `Person` at the 0th location and assign that individual a name.
+
+## Sorting
+
+* ***Sorting*** is the act of taking an unsorted list of values and transforming this list into a sorted one.
+* When a list is sorted, searching that list is a far less taxing on the computer. Recall that we can use binary search on a sorted list, but not on an unsrted one.
+* It turns out that there are many different types of sorting algorithms.
+* ***Selection sort*** is one such search algorithm.
+* We can represent an array as follows:
+
+![array](img/array.png)
+
+* The algorithm for selection sort in pseudocode is:
+
+```
+For i from 0 to n-1 
+  Find smallest number between numbers[i] and numbers[n-1]
+  Swap smallest number with numbers[i]
+```
+
+* Summarizing those steps, the first time iterating the list took `n - 1` steps. The second time, it took `n - 2` steps. Carrying this logic forward, the steps required could be represented as follows:
+
+```
+(n - 1) + (n - 2) + (n -3) + ... + 1
+```
+
+* This could be simplified to n(n-1)/2 or, more simply, O(n^2).
