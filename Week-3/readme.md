@@ -1,5 +1,17 @@
 # Algorithms
 
+* [Welcome!](#welcome)
+* [Linear Search](#liner-search)
+* [Binary Search](#binary-search)
+* [Running Time](#running-time)
+* [search.c](#searchc)
+* [Data Structures](#data-structure)
+* [Sorting](#sorting)
+* [Bubble Sort](#bubble-sort)
+* [Recursion](#recursion)
+* [Merge Sort](#merge-sort)
+* [Summing Up](#summing-up)
+
 ## Welcome
 
 * In week zero, we introduced the idea of an ***algorithm***: a black box that may take an input and creates an output.
