@@ -97,3 +97,92 @@ Notice, looking at this approximation of code, you can nearly imagine what this 
 * The \Omega symbol is used to denote the best case of an algorithm, such as \Omega(\log n).
 * The \Theta symbol is used to denote where the upper bound and lower bound are the same, where the best case and the worst case running times are the same.
 * As you continue to develop your knowledge in computer science, you will explore these topics in more detail in future courses.
+
+## search.c
+
+* You can implement linear search ourselves by typing `code search.c` in your terminal window and by writning code as follows:
+
+```C
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+  //an array of integers
+  int numbers[] = {20, 500, 10, 5, 100, 1, 50};
+
+  //Search for number 
+  int n = get_int("number: ") ;
+  for (int i = 0; i < 7;i++) {
+    if(numbers[i] == n){
+      printf("Found\n");
+      return 0;
+    }
+  }
+  printf("Not found\n");
+  return 1;
+}
+```
+
+Notice that the line beginning with `int numbers[]` allows us to define the values of each element of the array as we create it. Then, in the `for` loop, we have an implementation of linear search. `return 0` is used to indicate success and exit the program. `return 1` is used to exit the program with an error (failure).
+
+* We have now implement linear search ourselves in C!
+* What if we wanted to search for a string within an array? Modify your code as follows:
+
+```C
+#include <cs50.h>
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+  //an array of strings
+  string strings[] = {"battleships", "boot", "cannon","iron", "thimble", "top hat"};
+
+  //Search for string 
+  string s = get_string("String: ") ;
+  for (int i = 0; i < 6;i++) {
+    if(strcmp(strings[i], s)== 0){
+      printf("Found\n");
+      return 0;
+    }
+  }
+  printf("Not found\n");
+  return 1;
+}
+
+```
+
+Notice that we cannot utilize `==` as in our previous iteration of this program. Instead, we use `strcmp`, which comes from the `string.h` library. `strcmp` will return `0` if the strings are the same.
+
+* Indeed, running this code allows us to iterate over this array of strings to see if a certain string was within it. However, if you see a ***segmentation fault***, wheer a part of memory was touched by your program that it should not have access to, do make sure you have `i < 6` noted above istead of `i < 7`.
+* We can combine these ideas of bothh numbers and strings into a single program. Type `code phonebook.c` into your terminal window and write code as follows:
+
+```C
+
+#include <cs50.h>
+#include <stdio.h>
+#include <string.h>
+
+int main(void){
+  //Arrrays of strings 
+  string names[] = {"Carter", "David", "John"};
+  string numbers[] = {"+1-617-4985-1000", "+1-617-495-1000", "+1-949-468-2750"};
+
+  //Search for name
+  string name = get_string("Name: ");
+
+  for (int i = 0;i < 3; i++) {
+    if(strcmp(names[i], name) == 0){
+      printf("Found %s\n", numbers[i]);
+      return 0;
+    }
+  }
+  printf("Not found\n");
+  return 1;
+}
+```
+
+Notice that Carter's number begins with `+1-617`, David's phone number starts with `+1-617`. and John's number starts with `+1-949`. Therefore, `names[0]` is Carter and `numbers[0]` is Carter's number. This code will allow us to search the phonebook to for a person person's specific number.
+
+* While this code works, there are numerous inefficiencies. Indeed, there is a chance that people's names and numbers may not correspond. Wouldn't be nice if we could create our own data type where we could associate a person with the phone number?
