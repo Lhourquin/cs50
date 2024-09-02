@@ -78,7 +78,7 @@ Started the 31 August of 2024
 * [X] Binary Search
 * [X] Running Time
 * [X] search.c
-* [] Data Structures
+* [X] Data Structures
 * [] Sorting
 * [] Bubble Sort
 * [] Recursion
