@@ -8,10 +8,10 @@ CFLAGS = -I/usr/local/include
 LDFLAGS = -L/usr/local/lib -lcs50
 
 # Nom de l'exécutable
-TARGET = data-structure
+TARGET = recursion
 
 # Les fichiers objets à générer
-OBJS = data-structure.o
+OBJS = recursion.o
 
 # Règle par défaut
 all: $(TARGET)

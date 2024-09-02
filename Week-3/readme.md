@@ -100,7 +100,7 @@ Notice, looking at this approximation of code, you can nearly imagine what this 
 
 ## search.c
 
-* You can implement linear search ourselves by typing `code search.c` in your terminal window and by writning code as follows:
+* You can implement linear search ourselves by typing `code search.c` in your terminal window and by writing code as follows:
 
 ```C
 #include <cs50.h>
@@ -282,3 +282,124 @@ or more simply n^2/2 - n/2.
 * Considering that mathematical analysis, n^2 is really the most influential factor in determining the efficiency of this algorithm. Therefore, selection sort is considered to be of the order of O(n^2) in the worst case where all values are unsorted. Even when all values are sorted, it will take the same number of steps. Therefore, the best case can be noted as \Omega(n^2). Since both the upper bound and lower bound cases are the same, the efficiency of this algorithm as a whole can be regarded as \Theta(n^2).
 * Analyzing bubble sort, the worst case is O(n^2). The best case is \Omega(n).
 * You can [visualize](https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html) a comparison of these algorithms.
+
+## Recursion
+
+* How could we improve our efficiency in our sorting ?
+* ***Recursion*** is a concept within programming where a function calls itself. We saw this earlier when we saw...
+
+```
+If no doors left
+  Return false 
+If number bihind middle door 
+  Return true 
+Else if number < middle door 
+  Search left half 
+Else if number > middle door 
+  Search right half
+```
+
+Notice that we are calling `search` on smaller and smaller iterations of this problem.
+
+* Similarly, in our pseudocode for Week 0, you can see where recursion was implemented:
+
+```
+1   Pick up phone book
+2   Open to middle of phone book
+3   Look at page
+4   If person is on page 
+5     Call person
+6   Else if person is earlier in book
+7     Open to middle of left half of book
+8     Go back to line 3
+9   Else if person is later in book
+10    Open to middle of right half of book
+11    Go back to line 3
+12  Else 
+13    Quit
+```
+
+* This code could have been simplified, to highlight its recursive properties as follows:
+
+```
+1   Pick up phone book
+2   Open to middle of phone book
+3   Look at page
+4   If person is on page 
+5     Call person
+6   Else if person is earlier in book
+7     Search left half of book
+9   Else if person is later in book
+10    search right half of book
+12  Else 
+13    Quit
+```
+
+* Consider how in Week 1 we wanted to create a pyramid structure as follows:
+
+```
+#
+##
+###
+####
+```
+
+* To implement this using recursion, type `code recursion.c` into your terminal window and write code as follows:
+
+```C
+#include <stdio.h>
+#include <cs50.h>
+
+void draw(int n);
+
+int main(void){
+  draw(1);
+  return 0;
+}
+
+void draw(int n){
+  for (int i = 0; i < n; i++) {
+    printf("#");
+  }
+  printf("\n");
+  draw(n - 1);
+}
+```
+
+Notice that the draw function calls itself. Further, note that your code may get caught in an infinite loop. To break from this loop, if you get stuck, hit `ctrl-c` on your keyboard. The reason this creates an infinite loop is that there is nothing telling the program to end. There is no case where the program is done.
+
+* We can correct our code as follows:
+
+```C
+#include <stdio.h>
+#include <cs50.h>
+#include <stdlib.h>
+
+void draw(int n);
+
+int main(int argc, char *argv[]){
+  if(argc != 2){
+    printf("Usage: ./recursion n\n");
+    return 1;
+  }
+  draw(atoi(argv[1]));
+  return 0;
+}
+
+void draw(int n){
+  //If nothing to draw
+  if(n <= 0){
+    return;
+  }
+  //Draw pyramid of height n - 1
+  draw(n - 1);
+
+  //Draw one more row of width n
+  for (int i = 0; i < n; i++) {
+    printf("#");
+  }
+  printf("\n");
+}
+```
+
+Notice the ***base case*** will ensure the code does not run forever. The line `if (n <= 0)` terminates the recursion because the problem has been solved. Every time `draw` calls itself by `n-1`. At some point, `n-1` will equal `0`, resulting in the `draw` function returning and the program will end.
