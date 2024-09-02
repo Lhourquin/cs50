@@ -186,3 +186,46 @@ int main(void){
 Notice that Carter's number begins with `+1-617`, David's phone number starts with `+1-617`. and John's number starts with `+1-949`. Therefore, `names[0]` is Carter and `numbers[0]` is Carter's number. This code will allow us to search the phonebook to for a person person's specific number.
 
 * While this code works, there are numerous inefficiencies. Indeed, there is a chance that people's names and numbers may not correspond. Wouldn't be nice if we could create our own data type where we could associate a person with the phone number?
+
+## Data Structure
+
+* It turns out that C allows a way by which we can create our own data types via a `struct`.
+* Would it not be useful to create our own data type called a `person`, that has inside of it a `name` and `number`.
+* Modify your code as follows:
+
+```C
+#include <cs50.h>
+#include <stdio.h>
+#include <string.h>
+
+typedef struct{
+  string name;
+  string number;
+} Person;
+
+int main(void){
+  Person people[3];
+
+  people[0].name = "Carter";
+  people[0].number = "+1-617-4985-1000";
+
+  people[1].name = "David";
+  people[1].number = "+1-617-495-1000";
+
+  people[2].name = "John";
+  people[2].number = "+1-949-468-2750";
+
+  //Search for name  
+  string name = get_string("Name: ");
+  for (int i = 0; i < 3; i++) {
+    if(strcmp(people[i].name, name) == 0){
+      printf("Found: %s\n", people[i].number);
+      return 0;
+    }
+  }
+  printf("Not found\n");
+  return 1;
+}
+```
+
+Notice that the code begins with `typedef struct` where a new datatype called `Person` is defined. Inside a `Person` is a string called `name` and a `string` called number. In the `main` function, begin by creating an array called `people` that is of type `Person` that is size of 3. Then, we update the names and phone numbers of the two people in our `people` array. Most important, notice how the ***dot notation*** such as `people[0].name` allows us to access the `Person` at the 0th location and assign that individual a name.

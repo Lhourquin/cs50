@@ -8,10 +8,10 @@ CFLAGS = -I/usr/local/include
 LDFLAGS = -L/usr/local/lib -lcs50
 
 # Nom de l'exécutable
-TARGET = phonebook
+TARGET = data-structure
 
 # Les fichiers objets à générer
-OBJS = phonebook.o
+OBJS = data-structure.o
 
 # Règle par défaut
 all: $(TARGET)
