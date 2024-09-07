@@ -121,14 +121,21 @@ void record_preferences(int ranks[])
           if(j != ranks[0]){
             printf("ranks[i] != j, ranks[j] = %d\n", ranks[j]);
             preferences[i][j] += 1;
+            if (ranks[j] != ranks[0]&& ranks[j] != ranks[candidate_count-1]) {
+              printf("rank -> %d  ", ranks[j]);
+              preferences[ranks[j]][j] += 1;
+            //&& ranks[j] != ranks[candidate_count-1]
+            } 
           }
         }
-      }else {
-        printf("rank -> %d  ", ranks[i]);
+      }/*else {
+      
         if (ranks[i] != ranks[0] && ranks[i] != ranks[candidate_count-1]) {
+          printf("rank -> %d  ", ranks[i]);
           preferences[ranks[i]][i] += 1;
         } 
       }
+      */
     } 
     printf("\n");
     printf("display all content of array");
