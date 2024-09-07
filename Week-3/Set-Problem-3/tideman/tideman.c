@@ -100,9 +100,9 @@ int main(int argc, string argv[])
 bool vote(int rank, string name, int ranks[])
 {
     // TODO
-    printf("name %s \n", name);
     for (int i = 0; i < candidate_count; i++) {
       if (strcmp(candidates[i], name) == 0) {
+        ranks[rank] = i;
         return true;
       }
     }
@@ -113,8 +113,33 @@ bool vote(int rank, string name, int ranks[])
 void record_preferences(int ranks[])
 {
     // TODO
-    for (int i =0; i < candidate_count; i++) {
-      printf("%d\n", ranks[i]);
+    //loop over ranks[]
+    //update preferences
+    for (int i = 0; i < candidate_count; i++) {
+      if(i == ranks[0]){
+        for (int j = 0; j < candidate_count; j++) {
+          if(j != ranks[0]){
+            printf("ranks[i] != j, ranks[j] = %d\n", ranks[j]);
+            preferences[i][j] += 1;
+          }
+        }
+      }else {
+        printf("rank -> %d  ", ranks[i]);
+        if (ranks[i] != ranks[0] && ranks[i] != ranks[candidate_count-1]) {
+          preferences[ranks[i]][i] += 1;
+        } 
+      }
+    } 
+    printf("\n");
+    printf("display all content of array");
+    printf("\n");
+    //see what is on preferences after update
+    printf("alice  bob  charlie\n");
+    for (int i = 0; i < candidate_count; i++) {
+      for (int j = 0; j < candidate_count; j++) {
+        printf(" %d           ",preferences[i][j]);
+      }
+      printf("\n");
     }
     return;
 }
