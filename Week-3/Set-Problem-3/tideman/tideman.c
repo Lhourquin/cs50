@@ -115,33 +115,39 @@ void record_preferences(int ranks[])
     // TODO
     //loop over ranks[]
     //update preferences
-    for (int i = 0; i < candidate_count; i++) {
+    /*
+     * 
+     * firs step : through row
+     * first loop i to enter on the row
+     *  if i == ranks[0] //case where i equal to the preffered candidate at index 0, this do only change the row of the preferred candidate
+     *    second nested loop j to enter on the column
+     *      preferences[i][j] += 1;
+     *  else 
+     *    for all candidate with advantage over the next (the index is before the next candidate in ranks array)
+      *    second nested loop j to enter on the column
+     *      if i == ranks[j] 
+     *        preferences[i][ranks[i+1]] += 1;
+     */
+    for (int i = 0; i < candidate_count; i++){
       if(i == ranks[0]){
         for (int j = 0; j < candidate_count; j++) {
           if(j != ranks[0]){
-            printf("ranks[i] != j, ranks[j] = %d\n", ranks[j]);
             preferences[i][j] += 1;
-            if (ranks[j] != ranks[0]&& ranks[j] != ranks[candidate_count-1]) {
-              printf("rank -> %d  ", ranks[j]);
-              preferences[ranks[j]][j] += 1;
-            //&& ranks[j] != ranks[candidate_count-1]
-            } 
           }
         }
-      }/*else {
-      
-        if (ranks[i] != ranks[0] && ranks[i] != ranks[candidate_count-1]) {
-          printf("rank -> %d  ", ranks[i]);
-          preferences[ranks[i]][i] += 1;
-        } 
+      }else {
+        for (int j = 0; j < candidate_count; j++) {
+          if(i == ranks[j] && ranks[j] != ranks[candidate_count-1]){
+            preferences[i][ranks[j+1]] += 1;
+          }
+        }
       }
-      */
-    } 
+    }  
     printf("\n");
     printf("display all content of array");
     printf("\n");
     //see what is on preferences after update
-    printf("alice  bob  charlie\n");
+    printf("alice         bob       charlie\n");
     for (int i = 0; i < candidate_count; i++) {
       for (int j = 0; j < candidate_count; j++) {
         printf(" %d           ",preferences[i][j]);
