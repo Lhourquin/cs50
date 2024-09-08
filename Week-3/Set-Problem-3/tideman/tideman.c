@@ -125,8 +125,8 @@ void record_preferences(int ranks[])
      *  else 
      *    for all candidate with advantage over the next (the index is before the next candidate in ranks array)
       *    second nested loop j to enter on the column
-     *      if i == ranks[j] 
-     *        preferences[i][ranks[i+1]] += 1;
+     *      if i == ranks[j] && ranks[j] != ranks[candidate_count-1]
+     *        preferences[i][ranks[j+1]] += 1;
      */
     for (int i = 0; i < candidate_count; i++){
       if(i == ranks[0]){
