@@ -138,27 +138,17 @@ void record_preferences(int ranks[])
 // Record pairs of candidates where one is preferred over the other
 void add_pairs(void)
 {
-    //TODO
-    //compare all candidate to find who geain against another
-    //condition to check only between two candidate
-    //store the result for each candidate
-    //find the winner and the loser
-    //repeat that for all candidates
-    
-    //idea
-    //TO DOOO FIXX THE FUNCTION, DON'T WORK VERRY WELLLL !!!!!!!
     pair_count = 0; 
     for (int i = 0; i < candidate_count; i++) {
         int j = candidate_count-1;
         int oponent_points = 0;
         int candidate_points = 0;
         while (j != 0) {
-            if(i != j){
+            if(i != j && i != candidate_count-1){
                 printf("%s vs %s\n",candidates[i], candidates[j]);
                 candidate_points = preferences[i][j];
                 oponent_points = preferences[j][i];
 
-                //printf("%s have %d points, and %s have %d points\n", candidates[i], candidate_points, candidates[j], oponent_points );
                 if(candidate_points > oponent_points){
                     pairs[pair_count].winner = i;
                     pairs[pair_count].loser = j;
@@ -172,19 +162,9 @@ void add_pairs(void)
                     printf("candidate_points < oponent_points\n");
                     printf("%s lose against %s, %s have %d points, and %s have %d points\n", candidates[i], candidates[j], candidates[i], candidate_points, candidates[j], oponent_points );
                 }
-            }else if (j == candidate_count-1 && i == candidate_count-1) {
-                break;
             }
             j--;
         }
-        /*
-        candidate_points = preferences[i][j];
-        
-        oponent_points = preferences[j][i];
-        printf("%s have %d points, and %s have %d points\n", candidates[i], candidate_points, candidates[j], oponent_points );
-        //*/
-        //at this point i, in my range get the point against each specific candidate after and before my position
-
     }
     printf("pair_count: %d\n", pair_count);
     for (int i = 0 ; i < pair_count; i++) {
