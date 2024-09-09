@@ -24,22 +24,12 @@ function `void record_preferences(int ranks[])`:
 ```C
 void record_preferences(int ranks[])
 {
-    for (int i = 0; i < candidate_count; i++){
-      for (int j = 0; j < candidate_count; j++) {
-        if(i == ranks[0]){
-            if(j != ranks[0]){
-              preferences[i][j] += 1;
-            }
-        }else {
-            if(i == ranks[j] && ranks[j] != ranks[candidate_count-1]){
-              preferences[i][ranks[j+1]] += 1;
-            }
-          }
+    for (int i = 0; i < candidate_count; i++) {
+        int j = i+1;
+        while (j < candidate_count) {
+            preferences[ranks[i]][ranks[j]] += 1;
+            j++;
         }
     }
 }
 ```
-
-Update the two dimensional array `preferences[i][j]`, first loop is to enter in a row, second nested loop is to loop over column. If `i` is equal to the preferred candidates, which index is at `ranks[0]`, that means we enter in the row of them to update they score. Then, update each of them point against other candidates.
-
-For other candidates, even if they are not the first preferred on the ballot, they can have advantages over the next candidates, so we through the column of them to, and we check if `i` is equal to the value in `ranks[j]` and also if `ranks[j]` is not equal to the last candidates of the ranks, because if is the last, he cannot win against another candidates for this ballot.
