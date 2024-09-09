@@ -126,13 +126,76 @@ void record_preferences(int ranks[])
           }
         }
     }
+    printf("\n");
+    printf("display all content of array");
+    printf("\n");
+    //see what is on preferences after update
+    printf("alice         bob       charlie\n");
+    for (int i = 0; i < candidate_count; i++) {
+      for (int j = 0; j < candidate_count; j++) {
+        printf(" %d           ",preferences[i][j]);
+      }
+      printf("\n");
+    }
     return;
 }
 
 // Record pairs of candidates where one is preferred over the other
 void add_pairs(void)
 {
-    // TODO
+    //TODO
+    //compare all candidate to find who geain against another
+    //condition to check only between two candidate
+    //store the result for each candidate
+    //find the winner and the loser
+    //repeat that for all candidates
+    
+    //idea
+    for (int i = 0; i < candidate_count; i++) {
+        int j = candidate_count-1;
+        int oponent_points = 0;
+        int candidate_points = 0;
+        
+        while (j != 0) {
+            candidate_points = preferences[i][j];
+            oponent_points = preferences[j][i];
+
+            //printf("%s have %d points, and %s have %d points\n", candidates[i], candidate_points, candidates[j], oponent_points );
+            if(candidate_points > oponent_points){
+                pairs[i].winner = i;
+                pairs[i].loser = j;
+                printf("%s win with %d points\n", candidates[i], candidate_points);
+                printf("%s lose with %d points\n", candidates[j], oponent_points);
+                printf("\n");
+                pair_count++;
+            }else if (candidate_points < oponent_points) {
+                pairs[i].winner = j;
+                pairs[i].loser = i;
+                printf("%s win with %d points\n", candidates[j], oponent_points);
+                printf("%s lose with %d points\n", candidates[i], candidate_points);
+                printf("\n");
+                pair_count++;
+            }
+            else {
+                printf("%s VS %s\n", candidates[i], candidates[j]);
+                printf("TIE !!\n");
+                printf("\n");
+            }
+            j--;
+        }
+        /*
+        candidate_points = preferences[i][j];
+        
+        oponent_points = preferences[j][i];
+        printf("%s have %d points, and %s have %d points\n", candidates[i], candidate_points, candidates[j], oponent_points );
+        //*/
+        //at this point i, in my range get the point against each specific candidate after and before my position
+
+    }
+    for (int i = 0 ; i < pair_count; i++) {
+        printf("\n");
+        printf("%d win over %d\n", pairs[i].winner, pairs[i].loser);
+    }
     return;
 }
 
