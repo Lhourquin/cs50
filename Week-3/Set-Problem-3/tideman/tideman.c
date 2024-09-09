@@ -151,35 +151,40 @@ void add_pairs(void)
     //repeat that for all candidates
     
     //idea
+    pair_count = 0; 
     for (int i = 0; i < candidate_count; i++) {
         int j = candidate_count-1;
         int oponent_points = 0;
         int candidate_points = 0;
-        
         while (j != 0) {
             candidate_points = preferences[i][j];
             oponent_points = preferences[j][i];
 
             //printf("%s have %d points, and %s have %d points\n", candidates[i], candidate_points, candidates[j], oponent_points );
-            if(candidate_points > oponent_points){
-                pairs[i].winner = i;
-                pairs[i].loser = j;
-                printf("%s win with %d points\n", candidates[i], candidate_points);
-                printf("%s lose with %d points\n", candidates[j], oponent_points);
-                printf("\n");
-                pair_count++;
-            }else if (candidate_points < oponent_points) {
-                pairs[i].winner = j;
-                pairs[i].loser = i;
-                printf("%s win with %d points\n", candidates[j], oponent_points);
-                printf("%s lose with %d points\n", candidates[i], candidate_points);
-                printf("\n");
-                pair_count++;
-            }
-            else {
-                printf("%s VS %s\n", candidates[i], candidates[j]);
-                printf("TIE !!\n");
-                printf("\n");
+            if (pairs[pair_count].winner == i && pairs[pair_count].loser == j || pairs[pair_count].winner == j && pairs[pair_count].loser == i) {
+               printf("%d over %d\n", pairs[i].winner, pairs[i].loser);
+            }else {
+                if(i != j){
+                    if(candidate_points > oponent_points){
+                        pairs[pair_count].winner = i;
+                        pairs[pair_count].loser = j;
+                        printf("candidate_points > oponent_points\n");
+                        printf("%s win with %d points\n", candidates[i], candidate_points);
+                        printf("%s lose with %d points\n", candidates[j], oponent_points);
+                        printf("\n");
+                        pair_count++;
+                    }else if (candidate_points < oponent_points) {
+                        pairs[pair_count].winner = j;
+                        pairs[pair_count].loser = i;
+                        printf("candidate_points < oponent_points\n");
+                        printf("%s lose with %d points\n", candidates[i], candidate_points);
+                        printf("%s win with %d points\n", candidates[j], oponent_points);
+                        printf("\n");
+                        pair_count++;
+                    }
+                }else {
+                    break;
+                }
             }
             j--;
         }
@@ -194,7 +199,7 @@ void add_pairs(void)
     }
     for (int i = 0 ; i < pair_count; i++) {
         printf("\n");
-        printf("%d win over %d\n", pairs[i].winner, pairs[i].loser);
+        printf("%s win over %s\n",candidates[pairs[i].winner] , candidates[pairs[i].loser] );
     }
     return;
 }
