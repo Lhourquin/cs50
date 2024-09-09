@@ -146,6 +146,7 @@ void add_pairs(void)
     //repeat that for all candidates
     
     //idea
+    //TO DOOO FIXX THE FUNCTION, DON'T WORK VERRY WELLLL !!!!!!!
     pair_count = 0; 
     for (int i = 0; i < candidate_count; i++) {
         int j = candidate_count-1;
@@ -153,6 +154,7 @@ void add_pairs(void)
         int candidate_points = 0;
         while (j != 0) {
             if(i != j){
+                printf("%s vs %s\n",candidates[i], candidates[j]);
                 candidate_points = preferences[i][j];
                 oponent_points = preferences[j][i];
 
@@ -161,14 +163,19 @@ void add_pairs(void)
                     pairs[pair_count].winner = i;
                     pairs[pair_count].loser = j;
                     pair_count++;
+                    printf(" candidate_points > oponent_points\n");
+                    printf("%s win against %s, %s have %d points, and %s have %d points\n", candidates[i], candidates[j], candidates[i], candidate_points, candidates[j], oponent_points );
                 }else if (candidate_points < oponent_points) {
                     pairs[pair_count].winner = j;
                     pairs[pair_count].loser = i;
                     pair_count++;
+                    printf("candidate_points < oponent_points\n");
+                    printf("%s lose against %s, %s have %d points, and %s have %d points\n", candidates[i], candidates[j], candidates[i], candidate_points, candidates[j], oponent_points );
                 }
-                j--;
+            }else if (j == candidate_count-1 && i == candidate_count-1) {
+                break;
             }
-            break;
+            j--;
         }
         /*
         candidate_points = preferences[i][j];
@@ -179,6 +186,7 @@ void add_pairs(void)
         //at this point i, in my range get the point against each specific candidate after and before my position
 
     }
+    printf("pair_count: %d\n", pair_count);
     for (int i = 0 ; i < pair_count; i++) {
         printf("\n");
         printf("%s win over %s\n",candidates[pairs[i].winner] , candidates[pairs[i].loser] );
