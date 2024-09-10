@@ -166,11 +166,6 @@ void add_pairs(void)
             j--;
         }
     }
-    printf("pair_count: %d\n", pair_count);
-    for (int i = 0 ; i < pair_count; i++) {
-        printf("\n");
-        printf("%s win over %s\n",candidates[pairs[i].winner] , candidates[pairs[i].loser] );
-    }
     return;
 }
 
@@ -178,6 +173,16 @@ void add_pairs(void)
 void sort_pairs(void)
 {
     // TODO
+    // try merge sort ????
+    printf("pair_count: %d\n", pair_count);
+    if (pair_count > 1) {
+        for (int i = 0 ; i < pair_count; i++) {
+            int tmp = 0;
+            printf("\n");
+            printf("%s win over %s\n",candidates[pairs[i].winner] , candidates[pairs[i].loser] );
+            printf("points of winner: %d, points of loser: %d\n",preferences[pairs[i].winner][pairs[i].loser], preferences[pairs[i].loser][pairs[i].winner]);
+        }
+    }
     return;
 }
 
