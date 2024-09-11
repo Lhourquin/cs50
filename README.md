@@ -69,7 +69,7 @@ Started the 21 August of 2024, Finished 31 August of 2024
 * [X] Cryptography
 * [X] Summing Up
 
-## Week 2 - Arrays (Current) [✅]
+## Week 3 - Algorithms (Current) [☑️]
 
 Started the 31 August of 2024
 
