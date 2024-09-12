@@ -190,19 +190,19 @@ void sort_pairs(void)
         printf("strength of victory: %d\n", (preferences[pairs[i].winner][pairs[i].loser] - preferences[pairs[i].loser][pairs[i].winner]));
         printf("\n");
     }
-    for (int i = 1; i< pair_count; i++) {
+    for (int i = 0; i< pair_count; i++) {
         //comparer tout les autres au premier????
-        int prev_strength_victory = preferences[pairs[i-1].winner][pairs[i-1].loser] - preferences[pairs[i-1].loser][pairs[i-1].winner];
-        for (int j = i; j < pair_count; j++) {
+        int prev_strength_victory = preferences[pairs[i].winner][pairs[i].loser] - preferences[pairs[i].loser][pairs[i].winner];
+        for (int j = i+1; j < pair_count; j++) {
             int current_strength_victory = preferences[pairs[j].winner][pairs[j].loser] - preferences[pairs[j].loser][pairs[j].winner];
-            if(prev_strength_victory < current_strength_victory){
+            if(current_strength_victory > prev_strength_victory){
                 pair tmp_pairs;
                 tmp_pairs.winner = pairs[j].winner;
                 tmp_pairs.loser = pairs[j].loser;
-                pairs[j].winner = pairs[j-1].winner;
-                pairs[j].loser = pairs[j-1].loser;
-                pairs[j-1].winner = tmp_pairs.winner;
-                pairs[j-1].loser = tmp_pairs.loser;
+                pairs[j].winner = pairs[i].winner;
+                pairs[j].loser = pairs[i].loser;
+                pairs[i].winner = tmp_pairs.winner;
+                pairs[i].loser = tmp_pairs.loser;
             }
         }
     }
