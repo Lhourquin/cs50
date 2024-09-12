@@ -67,12 +67,14 @@ int main(int argc, string argv[])
     int voter_count = get_int("Number of voters: ");
 
     // Query for votes
+    int tmp_balot = 0;
     for (int i = 0; i < voter_count; i++)
     {
         // ranks[i] is voter's ith preference
         int ranks[candidate_count];
 
         // Query for each rank
+        printf("Ballot number: %d\n", tmp_balot+1);
         for (int j = 0; j < candidate_count; j++)
         {
             string name = get_string("Rank %i: ", j + 1);
@@ -83,7 +85,7 @@ int main(int argc, string argv[])
                 return 3;
             }
         }
-
+        tmp_balot++;
         record_preferences(ranks);
 
         printf("\n");
@@ -222,6 +224,19 @@ void lock_pairs(void)
         printf("\n");
     }
 
+    // from the higher to the lower
+    //
+    printf("alice         bob       charlie        david\n");
+    for (int i = 0; i < pair_count; i++) {
+        int j = i;
+        while (j < candidate_count-1) {
+            locked[pairs[i].winner][pairs[i].loser] = true;
+            if (locked[pairs[i-1].loser][pairs[i-1].winner] ==locked[pairs[i].winner][pairs[i].loser]) {
+                locked[pairs[i].winner][pairs[i].loser] = false;
+            } 
+            j++;
+        }
+    }
     return;
 }
 
@@ -229,5 +244,11 @@ void lock_pairs(void)
 void print_winner(void)
 {
     // TODO
+    for (int i = 0; i < candidate_count; i++) {
+        for (int j = 0; j < candidate_count; j++) {
+            printf(" %d           ",locked[i][j]);
+        }
+        printf("\n");
+    }
     return;
 }
