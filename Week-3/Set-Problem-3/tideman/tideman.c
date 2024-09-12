@@ -172,16 +172,33 @@ void add_pairs(void)
 // Sort pairs in decreasing order by strength of victory
 void sort_pairs(void)
 {
-    // TODO
-    // try merge sort ????
-    printf("pair_count: %d\n", pair_count);
-    if (pair_count > 1) {
-        for (int i = 0 ; i < pair_count; i++) {
-            int tmp = 0;
-            printf("\n");
-            printf("%s win over %s\n",candidates[pairs[i].winner] , candidates[pairs[i].loser] );
-            printf("points of winner: %d, points of loser: %d\n",preferences[pairs[i].winner][pairs[i].loser], preferences[pairs[i].loser][pairs[i].winner]);
+    if (pair_count == 0) {
+        return;
+    }else {
+        int tmp = 1;
+        while (tmp != pair_count) {
+            for (int i = tmp ; i <= pair_count; i++) {
+                int points_prev_winner = preferences[pairs[i-1].winner][pairs[i-1].loser];
+                int points_prev_loser = preferences[pairs[i-1].loser][pairs[i-1].winner];
+                if(preferences[pairs[i].winner][pairs[i].loser] > points_prev_winner ){
+                    int tmp_winner = pairs[i].winner;
+                    int tmp_loser = pairs[i].loser;
+                    pairs[i].winner = pairs[i-1].winner;
+                    pairs[i].loser = pairs[i-1].loser;
+                    pairs[i-1].winner = tmp_winner;
+                    pairs[i-1].loser = tmp_loser;
+                }else if (preferences[pairs[i].winner][pairs[i].loser] == points_prev_winner && points_prev_loser > preferences[pairs[i].loser][pairs[i].winner]) {
+                    int tmp_winner = pairs[i].winner;
+                    int tmp_loser = pairs[i].loser;
+                    pairs[i].winner = pairs[i-1].winner;
+                    pairs[i].loser = pairs[i-1].loser;
+                    pairs[i-1].winner = tmp_winner;
+                    pairs[i-1].loser = tmp_loser;
+                }
+            }
+            tmp++;
         }
+        
     }
     return;
 }
@@ -189,6 +206,11 @@ void sort_pairs(void)
 // Lock pairs into the candidate graph in order, without creating cycles
 void lock_pairs(void)
 {
+    for (int i = 0; i< pair_count; i++) {
+        printf("\n");
+        printf("%s win over %s\n",candidates[pairs[i].winner] , candidates[pairs[i].loser] );
+        printf("points of winner: %d, points of loser: %d\n",preferences[pairs[i].winner][pairs[i].loser], preferences[pairs[i].loser][pairs[i].winner]);
+    }
     // TODO
     return;
 }
