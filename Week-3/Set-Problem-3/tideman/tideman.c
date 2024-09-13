@@ -228,14 +228,21 @@ void lock_pairs(void)
     //
     printf("alice         bob       charlie        david\n");
     for (int i = 0; i < pair_count; i++) {
-        int j = i;
-        while (j < candidate_count-1) {
-            locked[pairs[i].winner][pairs[i].loser] = true;
-            if (locked[pairs[i-1].loser][pairs[i-1].winner] ==locked[pairs[i].winner][pairs[i].loser]) {
-                locked[pairs[i].winner][pairs[i].loser] = false;
-            } 
-            j++;
+        //int j = i;
+        //untill we have not cycles, locked
+        //the source is the candidates where is not pointed by another
+        int target = locked[pairs[i].winner][pairs[i].loser];
+        int source = 0;
+        for (int j = 1; j < pair_count; j++) {
+           //check if the candidate I want locked on they oponent, not have they oponent beat another candidate who beat m current candidate to avoid cycle. 
         }
+    }
+
+    for (int i = 0; i < pair_count; i++) {
+        int j = i+1;
+        //untill we have not cycles, locked
+        //the source is the candidates where is not pointed by another
+        // locked[pairs[i].winner][pairs[i].loser] = true;
     }
     return;
 }
