@@ -69,9 +69,9 @@ Started the 21 August of 2024, Finished 31 August of 2024
 * [X] Cryptography
 * [X] Summing Up
 
-## Week 3 - Algorithms (Current) [☑️]
+## Week 3 - Algorithms (Current) [✅]
 
-Started the 31 August of 2024
+Started the 31 August of 2024, Finished 14 Septembder of 2024 (TIDEMAN !!!!)
 
 * [X] Welcome!
 * [X] Linear Search
