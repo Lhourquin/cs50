@@ -8,7 +8,7 @@
 * [Pointers](#pointers)
 * [Strings](#strings)
 * [Pointer Arithmetic](#pointer-arithmetic)
-* [String Comparion](#string-comparison)
+* [String Comparison](#string-comparison)
 * [Copying](#copying)
 * [malloc and Valgrind](#malloc-and-valgrind)
 * [Garbage Values](#garbage-values)
@@ -210,3 +210,197 @@ Notice that this code will present the string that starts at the location of `s`
 * Last week, we learned how to create your own data type as a struct.
 * The `cs50` library includes a struct as follows: `typedef char *string`.
 * This `struct`, when using the `cs50` library, allows one to use a custom data tye called `string`.
+
+## Pointer Arithmetic
+
+* You can modify your code to accomplish the same thing in a longer form as follows:
+
+```C  
+#include <stdio.h>
+
+int main(void)
+{
+    char *s = "HI!";
+    printf("%c\n", s[0]);
+    printf("%c\n", s[1]);
+    printf("%c\n", s[2]);
+}
+```
+
+Notice that we are printing each character at the location of `s`.
+
+* Further, you can modify your code as follows:
+
+```C
+#include <stdio.h>
+
+int main(void)
+{
+    char *s = "HI!":
+    printf("%c\n", *s);
+    printf("%c\n", *(s + 1));
+    printf("%c\n", *(s + 2));
+}
+```
+
+Notice that the first character at the location of `s` is printed. Then, the character at the location `s + 1` is printed, and so on.
+
+## String Comparison
+
+* A string of characters is simply an array of characters identified by its first byte.
+* Earlier in the course, we considred te comparison of integers. We could represent this in code by typing code `compare.c` into the terminal window and writing code as follows:
+
+```C
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    //Get two integer 
+    int i = get_int("i: ");
+    int j = get_int("j: ");
+
+    //Compare integers
+    if(i == j)
+    {
+        printf("Same\n");
+    }
+    else
+    {
+        printf("Different\n");
+
+    }
+}
+```
+
+Notice that this code takes two integers from the user and compares them.
+
+* In the case of strings, however, one cannot compare two strings using the == operator.
+* Utilizing the == operator in an attempt to compare strings will attempt to compare the memory locations of the string instead of the characters therin. Accordingly, we reommencded the use of `strcmp`.
+* To illustrate this, modify your code as follows:
+
+```C
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    char *s = get_string("s: ");
+    char *t = get_string("t: ");
+
+    if(s == t)
+    {
+        printf("Same\n");
+    }
+    else
+    {
+        printf("Different\n");
+
+    }
+}
+
+```
+
+Output:
+
+```
+❯ ./addresses
+s: kalu
+t: kalu
+Different
+
+```
+
+Notice that typing in "kalu" for both strings still results in the output of `Different`.
+
+* Why are these strings seemingly different ? You can use the following to visualize why:
+
+![why-different](img/why-same-string-output-different.png)
+
+* Therefore, the code for `compare.c` above is actually attempting to see if the memory addresses are different: not the strings themselves.
+* Using `strcmp`, we can correct our code:
+
+```C
+#include <cs50.h>
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+    char *s = get_string("s: ");
+    char *t = get_string("t: ");
+
+    if(strcmp(s, t) == 0)
+    {
+        printf("Same\n");
+    }
+    else
+    {
+        printf("Different\n");
+
+    }
+}
+```
+
+Output:
+
+```
+❯ ./addresses
+s: kalu
+t: kalu
+Same
+
+
+```
+
+Notice that `strcmp` can return `0` if the strings are the same.
+
+* To further illustrate how these two strings are living in two locations, modify your code as follows:
+
+```C
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    char *s = get_string("s: ");
+    char *t = get_string("t: ");
+
+    printf("%s\n", s);
+    printf("%s\n", t);
+
+}
+```
+
+Notice how we now have two seperate strings stored likely at two separate locations.
+
+* You can see the locations of these two stored strings with a small modification:
+
+```c
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    char *s = get_string("s: ");
+    char *t = get_string("t: ");
+
+    printf("%p\n", s);
+    printf("%p\n", t);
+
+}
+```
+
+Output:
+
+```
+❯ ./addresses
+s: kalu
+t: luka
+0x600001ce0000
+0x600001cfc000
+
+
+```
+
+Notice that the `%s` has been changed to `%p` in the print statement.
