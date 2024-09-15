@@ -159,3 +159,54 @@ Notice the pointer seems rather large. Indeed, a pointer is usually stored as `8
 * You can more accurately visualize a pointer as one address that points to another:
 
 ![pointers-to-adress](img/pointer.png)
+
+## Strings
+
+* Now that we have a mental model for pointers, we can peel back a level of simplification that was offered earlier in this course.
+* Recall taht a string is simply an array of characters. For example, `string s  = "HI!` can be represented as follwos;
+
+![adresse-string](img/address-string.png)
+
+* However, what is `s` really ? Where is the `s` stored in memory ? As you can imagine, `s` needs to be stored somewhere. You can visualize the relationship of `s` to the string as follows:
+
+![s in memory](img/s-memory.png)
+
+Notice how a pointer called `s` tells thje compiler where the first byte of the string exists in memory.
+
+* Modify your code as follows:
+
+```C
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    string s = "HI!";
+    printf("%p\n", s);
+    printf("%p\n", &s[0]);
+    printf("%p\n", &s[1]);
+    printf("%p\n", &s[2]);
+    printf("%p\n", &s[3]);
+}
+```
+
+Notice the above prints the memory locations of each character in the string `s`. The symbol is used to show the address of each element of the string. When running this code, notice that elements `0, 1, 2, 3` are next to one another in memory.
+
+* Likewise, you can modify your code as follows:
+
+```C
+#include <stdio.h>
+
+int main(void)
+{
+    char *s = "HI!";
+    printf("%s\n", s);
+}
+```
+
+Notice that this code will present the string that starts at the location of `s`. This code effectively removes the training wheels of the `string` data type offered by `cs50.h`. This is raw C code, without the scaffolding of thje cs50 library.
+
+* You can imagine how a string, as a data type, is created.
+* Last week, we learned how to create your own data type as a struct.
+* The `cs50` library includes a struct as follows: `typedef char *string`.
+* This `struct`, when using the `cs50` library, allows one to use a custom data tye called `string`.
