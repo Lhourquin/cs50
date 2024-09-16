@@ -644,3 +644,103 @@ int main(void)
 ```
 
 Notice that if the string obtained is of length `0` or `malloc` fails, `NULL` is returned. Further, notice that `free` lets the computer know you are done with this blocks of memory you created via `malloc`.
+
+## `malloc` and Valgrind
+
+* ***Valgrind*** is a tool that can check to see if there are memory-related issues with your programs wherein you utilized `malloc`. Specifically, it checks to see if you `free` all the memory you allocated.
+* Consider the following code foe `memory.c`:
+
+```C
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+    int *x = malloc(3 * sizeof(int));
+
+    x[1] = 72;
+    x[2] = 73;
+    x[3] = 33;
+}
+```
+
+Notice that running this program does not cause any errors. While `malloc` is used to allocate enough memory for an array, the code fails to `free` that allocated memory.
+
+* If you type make memory followed by `valgrind ./memory`, you will get a report from valgrind that will report where memory has been lost as a result of your program. One error that valgrind reveals is that we attempted to assign the value of 33 at the 4th position of the array, where we only allocated an array of size 3. Another error is that we never freed `x`
+Output:
+
+```
+memory/ $ make memory
+memory/ $ valgrind ./memory 
+==1955== Memcheck, a memory error detector
+==1955== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==1955== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==1955== Command: ./memory
+==1955== 
+==1955== Invalid write of size 4
+==1955==    at 0x109170: main (memory.c:10)
+==1955==  Address 0x4b9f04c is 0 bytes after a block of size 12 alloc'd
+==1955==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1955==    by 0x109151: main (memory.c:7)
+==1955== 
+==1955== 
+==1955== HEAP SUMMARY:
+==1955==     in use at exit: 12 bytes in 1 blocks
+==1955==   total heap usage: 1 allocs, 0 frees, 12 bytes allocated
+==1955== 
+==1955== 12 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==1955==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1955==    by 0x109151: main (memory.c:7)
+==1955== 
+==1955== LEAK SUMMARY:
+==1955==    definitely lost: 12 bytes in 1 blocks
+==1955==    indirectly lost: 0 bytes in 0 blocks
+==1955==      possibly lost: 0 bytes in 0 blocks
+==1955==    still reachable: 0 bytes in 0 blocks
+==1955==         suppressed: 0 bytes in 0 blocks
+==1955== 
+==1955== For lists of detected and suppressed errors, rerun with: -s
+==1955== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+```
+
+* You can modify your code as follows:
+
+```C
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+    int *x = malloc(3 * sizeof(int));
+
+    x[0] = 72;
+    x[1] = 73;
+    x[2] = 33;
+    free(x);
+}
+
+```
+
+Output:
+
+```
+memory/ $ make memory
+memory/ $ valgrind ./memory 
+==3813== Memcheck, a memory error detector
+==3813== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==3813== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==3813== Command: ./memory
+==3813== 
+==3813== 
+==3813== HEAP SUMMARY:
+==3813==     in use at exit: 0 bytes in 0 blocks
+==3813==   total heap usage: 1 allocs, 1 frees, 12 bytes allocated
+==3813== 
+==3813== All heap blocks were freed -- no leaks are possible
+==3813== 
+==3813== For lists of detected and suppressed errors, rerun with: -s
+==3813== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+```
+
+Notice that running valgrind again now results in no memory leaks.
