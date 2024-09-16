@@ -99,10 +99,10 @@ Started the 15 September of 2024
 * [x] String-comparison
 * [x] Copying
 * [x] Malloc and valgrind
-* [] Garbage value
-* [] Pointer fun with binky
-* [] Swap
-* [] Overflow
+* [x] Garbage value
+* [x] Pointer fun with binky
+* [x] Swap
+* [x] Overflow
 * [] `scanf`
 * [] File i/o
 * [] Summing-up
