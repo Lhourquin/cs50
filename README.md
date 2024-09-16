@@ -54,7 +54,7 @@ Started the 8 August of 2024, Finished the 12 August 2024
 * [X] Types
 * [X] Summing Up
 
-## Week 2 - Arrays (Current) [✅]
+## Week 2 - Arrays (Done) [✅]
 
 Started the 21 August of 2024, Finished 31 August of 2024
 
@@ -69,9 +69,9 @@ Started the 21 August of 2024, Finished 31 August of 2024
 * [X] Cryptography
 * [X] Summing Up
 
-## Week 3 - Algorithms (Current) [✅]
+## Week 3 - Algorithms (Done) [✅]
 
-Started the 31 August of 2024, Finished 14 Septembder of 2024 (TIDEMAN !!!!)
+Started the 31 August of 2024, Finished 14 September of 2024 (TIDEMAN !!!!)
 
 * [X] Welcome!
 * [X] Linear Search
@@ -84,3 +84,25 @@ Started the 31 August of 2024, Finished 14 Septembder of 2024 (TIDEMAN !!!!)
 * [X] Recursion
 * [X] Merge Sort
 * [X] Summing Up
+
+## Week 4 - Memory (Current)
+
+Started the 15 September of 2024
+
+* [x] Welcome
+* [x] Pixel-art
+* [x] Hexadecimal
+* [x] Memory
+* [x] Pointer
+* [x] String
+* [x] Pointer-arithmetic
+* [x] String-comparison
+* [x] Copying
+* [] Malloc and valgrind
+* [] Garbage value
+* [] Pointer fun with binky
+* [] Swap
+* [] Overflow
+* [] `scanf`
+* [] File i/o
+* [] Summing-up
