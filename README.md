@@ -98,7 +98,7 @@ Started the 15 September of 2024
 * [x] Pointer-arithmetic
 * [x] String-comparison
 * [x] Copying
-* [] Malloc and valgrind
+* [x] Malloc and valgrind
 * [] Garbage value
 * [] Pointer fun with binky
 * [] Swap
