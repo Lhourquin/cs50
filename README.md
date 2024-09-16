@@ -103,6 +103,6 @@ Started the 15 September of 2024
 * [x] Pointer fun with binky
 * [x] Swap
 * [x] Overflow
-* [] `scanf`
+* [X] `scanf`
 * [] File i/o
 * [] Summing-up
