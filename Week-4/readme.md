@@ -852,3 +852,83 @@ Notice that variables are not passed by ***vlaue*** but by ***reference***. That
 * A ***heap overflow*** is when you overflow the heap, touching areas of memory you are not supposed to.
 * A ***stack overflow*** is when too many functions are called, overflowing the amount of memory available.
 * Both of these are considered ***buffer overflow***.
+
+## `scanf`
+
+* In CS50, we have created functions like `get_int` to simply the act of getting input from the user.
+* `scanf` is a built-in function that can get user input.
+* We can reimplement `get_int` rather easily using `scanf` as follows:
+
+```C
+
+#include <stdio.h>
+
+int main(void)
+{
+    int x;
+    printf("x: ");
+    scanf("%d", &x);
+    printf("x: %i\n", x);
+}
+```
+
+Notice that the value of `x` is stored at the location of `x` in the line `scanf("%i", &x)`.
+
+* However, attempting to reimplement `get_string` is not easy. Consider the following:
+
+```C
+#include <stdio.h>
+
+int main(void)
+{
+    int *s;
+    printf("s: ");
+    scanf("%s", s);
+    printf("s: %s\n", s);
+}
+```
+
+Notice that no `&` is required because strings are special. Still, this program will not function. Nowhere in this program do we allocate the amount of memory required for our string. Indeed, we don't know long of a string may be inputted by the user!
+
+* Further, your code could be modified as follows. However, we have to pre-allocate a certain amount of memory for a string:
+
+```C
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+    char *s = malloc(4);
+    if (s == NULL)
+    {
+        return 1;
+    }
+    printf("s: ");
+    scanf("%s", s);
+    printf("s: %s\n", s);
+    free(s);
+    return 0;
+}
+
+```
+
+Notice that if a string that is six bytes is provided you ***might*** get an error.
+
+* Simplifying our code as follows we can further understand this essential problem of pre-allocation:
+
+```C
+#include <stdio.h>
+
+int main(void)
+{
+    char s[4];
+    printf("s: ");
+    printf("%s", s);
+    printf("s: %s\n", s);
+}
+```
+
+Notice that if we pre-allocate an array of sixe 4, we can type `cat` and the program functions. However, a string larger than this ***could*** create an error.
+
+* Sometimes, the cmpiler or the system running it may allocate more memory than we indicate. Fundamentally, through, the above code is unsafe. We cannot trust that the user will input a string fits into our pre-allocated memory.
