@@ -104,5 +104,5 @@ Started the 15 September of 2024
 * [x] Swap
 * [x] Overflow
 * [X] `scanf`
-* [] File i/o
-* [] Summing-up
+* [X] File I/O
+* [X] Summing-up
