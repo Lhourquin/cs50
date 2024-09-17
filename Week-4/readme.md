@@ -932,3 +932,130 @@ int main(void)
 Notice that if we pre-allocate an array of sixe 4, we can type `cat` and the program functions. However, a string larger than this ***could*** create an error.
 
 * Sometimes, the cmpiler or the system running it may allocate more memory than we indicate. Fundamentally, through, the above code is unsafe. We cannot trust that the user will input a string fits into our pre-allocated memory.
+
+## File I/O
+
+* You can read from and manipulate files. While this topic will be discussed further in a future week, consider the following code for `phonebook.c`:
+
+```C
+
+#include <stdio.h>
+#include <cs50.h>
+#include <string.h>
+
+int main(void)
+{
+    //Open CSV file 
+    FILE *file = fopen("phonebook.csv", "a");
+
+    //Get name and number 
+    char *name = get_string("Name: ");
+    char *number = get_string("Number: ");
+
+    //Print to file 
+    fprintf(file, "%s,%s\n", name, number);
+
+    //Close file
+    fclose(file);
+}
+
+```
+
+Notice that this code uses pointer to access the file.
+
+* You can create a file called `phonebook.csv` in advance of running the above code. After running the above program and inputing a name and phone number, you will notice that this data persists in your CSV file.
+Output:
+
+```
+❯ ./phonebook
+Name: Kalu
+Number: 0711111111        
+
+    ~/cs50/Week-4    main !3 ?4 ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────── 34s   12:16:07  
+❯ cat phonebook.csv 
+Kalu,0711111111
+
+```
+
+* If we want to ensure that `phonebook.csv` exists prior to running the program, we can modify our code as follows:
+
+```C
+
+#include <stdio.h>
+#include <cs50.h>
+#include <string.h>
+
+int main(void)
+{
+    //Open CSV file 
+    FILE *file = fopen("phonebook.csv", "a");
+    if(!file)
+    {
+        return 1;
+    }
+
+    //Get name and number 
+    char *name = get_string("Name: ");
+    char *number = get_string("Number: ");
+
+    //Print to file 
+    fprintf(file, "%s,%s\n", name, number);
+
+    //Close file
+    fclose(file);
+}
+
+```
+
+Notice that this program protects against a `NULL` pointer by invoking `return 1`.
+
+* We can implement our own copy program by typing `code cp.c` and writing code as follows:
+
+```C
+
+
+#include <stdio.h>
+#include <stdint.h>
+
+typedef uint8_t BYTE;
+
+int main(int argc, char *argv[])
+{
+    FILE *src = fopen(argv[1], "rb");
+    FILE *dst = fopen(argv[2], "wb");
+
+    BYTE b;
+
+    while (fread(&b, sizeof(b), 1, src) != 0) {
+        fwrite(&b, sizeof(b), 1, dst);
+    }
+
+    fclose(dst);
+    fclose(src);
+}
+```
+
+Notice that this file creates our own data type called a `BYTE` that is the size of a `uint8_t`. Then, the file reads a `BYTE` and writes it to a file.
+
+* BMPs are also assortments of data that we can examine and manipulate. This week, you will be doing just that in your problem sets!
+
+## Summing Up
+
+In this lesson, you learned about pointers that provide you with the ability to access and manipulate data at specific memory locations. Specifically, we delved into…
+
+* Pixel art
+* Hexadecimal
+* Memory
+* Pointers
+* Strings
+* Pointer Arithmetic
+* String Comparison
+* Copying
+* malloc and Valgrind
+* Garbage values
+* Swapping
+* Overflow
+* `scanf`
+* File I/O
+
+[Source: Week 4](https://cs50.harvard.edu/x/2024/notes/4/)

@@ -8,10 +8,10 @@ CFLAGS = -I/usr/local/include
 LDFLAGS = -L/usr/local/lib -lcs50
 
 # Nom de l'exécutable
-TARGET = copy
+TARGET = phonebook
 
 # Les fichiers objets à générer
-OBJS = copy.o
+OBJS = phonebook.o
 
 # Règle par défaut
 all: $(TARGET)
