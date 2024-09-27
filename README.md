@@ -7,8 +7,8 @@ This purpose of this repository is to store all my work about the cs50 harvard i
 * [X] Week 0 - Scratch
 * [X] Week 1 - C
 * [X] Week 2 - Arrays
-* [ ] Week 3 - Algorithms
-* [ ] Week 4 - Memory
+* [x] Week 3 - Algorithms
+* [x] Week 4 - Memory
 * [ ] Week 5 - Data Structures
 * [ ] Week 6 - Python
 * [ ] Artificial Inteligence
@@ -85,9 +85,9 @@ Started the 31 August of 2024, Finished 14 September of 2024 (TIDEMAN !!!!)
 * [X] Merge Sort
 * [X] Summing Up
 
-## Week 4 - Memory (Current)
+## Week 4 - Memory (Done) [✅]
 
-Started the 15 September of 2024
+Started the 15 September of 2024, Finished 27 September of 2024
 
 * [x] Welcome
 * [x] Pixel-art
