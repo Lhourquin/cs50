@@ -4,9 +4,9 @@
 /*
  *
  *
-    BYTE  rgbtBlue;
-    BYTE  rgbtGreen;
-    BYTE  rgbtRed;
+ BYTE  rgbtBlue;
+ BYTE  rgbtGreen;
+ BYTE  rgbtRed;
  * */
 // Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
@@ -60,7 +60,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 
         }
     }
-   
+
     return;
 }
 
@@ -74,33 +74,36 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         }
     }
 
+
     for (int i = 0; i < height; i ++) {
         for(int j = 0; j < width; j++){
-           //check if the current position form a square of 9 pixels around them, 
-           //if that form 9 pixels, enter in this condition
-                    // get average amount of each color
-        
+            int sum_of_red = 0;
+            int sum_of_green = 0;
+            int sum_of_blue = 0;
+            int count = 0;
 
+            for(int k = -1; k <= 1; k++){
+                for(int l = -1; l <= 1; l++){
+                    int row_idx = i + k;
+                    int col_idx = j + l;
 
+                    if(row_idx >= 0 && row_idx < height && col_idx >= 0 && col_idx < width){
+                        sum_of_red = round(sum_of_red +  copy[row_idx][col_idx].rgbtRed);
+                        sum_of_green = round(sum_of_green + copy[row_idx][col_idx].rgbtGreen);
+                        sum_of_blue = round(sum_of_blue +  copy[row_idx][col_idx].rgbtBlue);
+                        count++;
+                    }
 
-
-            //if the current position cannot form a 9 pixels, it should form a 6 pixels rectangle
-            //enter in the this condition
-                    // get average amount of each color
-
-
-            //if we are at corner, form a square with 4 pixels only
-            // enter in the coditon
-                    // get average amount of each color
-
-            if(i == 0 || i == (height - 1)){
-               if(j == 0 || j == (width - 1)){
-               }
+                }
             }
+            
+
+            image[i][j].rgbtRed = round(sum_of_red / count);
+            image[i][j].rgbtGreen = round(sum_of_green / count);
+            image[i][j].rgbtBlue = round(sum_of_blue / count);
+
         }
     }
 
-   
     return;
-}
-
+} 
