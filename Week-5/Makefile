@@ -8,10 +8,10 @@ CFLAGS = -I/usr/local/include
 LDFLAGS = -L/usr/local/lib -lcs50
 
 # Nom de l'exécutable
-TARGET = list-sort-item
+TARGET = tree
 
 # Les fichiers objets à générer
-OBJS = list-sort-item.o
+OBJS = tree.o
 
 # Règle par défaut
 all: $(TARGET)

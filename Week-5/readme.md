@@ -433,4 +433,112 @@ int main(int argc, char *argv[])
 }
 ```
 
-Notice how this list is sorted as it build. To insert an element in this specific order, our code will still run in `O(n)` for each insertion, as in the worst case we will have to look through all curent elements.
+Notice how this list is sorted as it build. To insert an element in this specific order, our code will still run in `O(n)` for each insertion, as in the worst case we will have to look through all current elements.
+
+## Trees
+
+* *Binary search trees*  are another data structure that can be used to store data more efficiently such that it can be searched and retrieved.
+* You can imagine a sorted sequence of numbers.
+
+![sorted-numbers](img/sorted-numbers.png)
+
+* Imagine then that the center value becomes the top of a tree. Those that are less than this value are placed to the left. Those values that are more than this value are to the right.
+
+![tree](img/tree.png)
+
+* Pointers can then be used to point to the correct location of each area of memory such that each of these nodes can be connected.
+
+![point-tree](img/point-tree.png)
+
+* In code, this can be implemented as follows:
+
+```C
+//implements a list of numbers as a binary search tree 
+#include <stdio.h>
+#include <stdlib.h>
+
+//represents a node
+typedef struct node 
+{
+    int number;
+    struct node *left;
+    struct node *right;
+}
+node;
+
+void free_tree(node *root);
+void print_tree(node *root);
+
+int main(void)
+{
+    //tree of size 0
+    node *tree = NULL;
+
+
+    //Add number to list 
+    node *n = malloc(sizeof(node));
+    if (n ==NULL) {
+        return 1;
+    }
+
+    n->number = 2;
+    n->left = NULL;
+    n->right = NULL;
+    tree = n;
+
+    n = malloc(sizeof(node));
+    if (n == NULL) {
+        free_tree(tree);
+        return 1;
+    }
+
+    n->number = 1;
+    n->left = NULL;
+    n->right = NULL;
+    tree->left = n;
+
+    //Add number to list 
+    n = malloc(sizeof(node));
+    if(n == NULL){
+        free_tree(tree);
+        return 1;
+    }
+
+    n->number = 3;
+    n->left = NULL;
+    n->right = NULL;
+    tree->right = n;
+
+    //print tree
+    print_tree(tree);
+    return 0;
+}
+
+void free_tree(node *root)
+{
+    if(root == NULL)
+    {
+        return;
+    }
+
+    free_tree(root->left);
+    free_tree(root->right);
+    free(root);
+}
+
+void print_tree(node *root)
+{
+    if (root == NULL) {
+        return;
+    }
+
+    print_tree(root->left);
+    printf("%i\n", root->number);
+    print_tree(root->right);
+}
+```
+
+Notice this search function begins by going to the location of `tree`. Then, it uses recursion to search for `number`. The `free_tree` function recursively frees the tree. `print_tree` recursively prints the tree.
+
+* A tree like the above dynamism that an array does not offer. It can grow and shrink as we wish.
+* Further, this structure offers a search time of `O(logn)`
