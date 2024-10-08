@@ -106,3 +106,19 @@ Started the 15 September of 2024, Finished 27 September of 2024
 * [X] `scanf`
 * [X] File I/O
 * [X] Summing-up
+
+## Week 5 - Data Structures (Current)
+
+Started the 7 October of 2024
+
+* [X] Welcome!
+* [x] Data Structures
+* [x] Stack and Queues
+* [x] Jack Learns the Facts
+* [x] Resizing Arrays
+* [x] Linked Lists
+* [] Trees
+* [] Dictionaries
+* [] Hashing and Hash Tables
+* [] Tries
+* [] Summing Up
