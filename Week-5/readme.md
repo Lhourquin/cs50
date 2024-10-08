@@ -160,3 +160,277 @@ Notice that a list of size three integers is created. Then, three memory address
 
 * It's useful to think about `list` and `tmp` as both signs that point at a chunk of memory. As in the example above, `list` at one point *pointed*  to an array of size 3. By the end, `list` was told to point to a chunk of memory of size 4. Technically, by the end of the above code, `tmp` and `list` both pointed to the same block of memory.
 * One may be tempted to allocate way more memory than required for the list, such as 30 items instead of the required 3 or 4. However, this is bad design as it taxes system resources when they are not potentially needed. Further, there is little guarantee that memory for move than 30 items will be needed eventually.
+
+## Linked Lists
+
+* In recent weeks, you have learned about three useful primitives. A `struct` is a data type that you can define yourself. A `.` in *dot notation* allows you to access variables inside that structure. The `*` operator is used to declare a pointer of dereference a variable.
+* Today, you are introduced to the `->` operator. It is an arrow. This operator goes to an address and looks inside of a structure.
+* A *linked list*  is one of the most powerful data structures within C. A linked list allows you to include values that are located at varying areas of memory. Further, they allow you to dynamically grow and shrink the list as you desire.
+* You might imagine three values stored at three different areas of memory as follows:
+
+![area](img/area.png)
+
+* How could one stitch together these values in a list?
+* We could imagine this data pictured above as follows:
+
+![area](img/imagine-area.png)
+
+* we could utilize more memory to keep track of where the next item is.
+
+![next-item-is](img/next-item-is.png)
+
+Notice that `NULL` is utilized to indicate that nothing else is *next* i the list.
+
+* By convention, we could keep one more element in memory, a pointer, that keeps track of the first in the list.
+
+![keep-tracks](img/keep-tracks.png)
+
+* Abstracting away the memory addresses, the list would appear as follows:
+![abstraction.png](img/abstraction.png)
+
+* These boxes are called *nodes* . A *node* contains both an *item* and a pointer called *next*. In code, you can imagine a node as follows:
+
+```C
+typedef struct node
+{
+    int number;
+    struct node *next;
+}
+node;
+```
+
+Notice that the item contained within this node is an integer called `number`. second, a pointer to a node called `next` is included, which will point to another node somewhere in memory.
+
+* conceptually, we can imagine the process of creatring a linked list. First, `node *list` is declared, but it is of a garbage value.
+
+![node-list](img/node-list.png)
+
+* Next, a node called `n` is allocated in memory.
+
+![node-allocated](img/node-allocated.png)
+
+* Next, the `number` of node is assigned the value `1`.
+
+![assigned-value](img/assigned-value.png)
+
+* Next, the node's `next` filed is assigned `NULL`
+
+![assigned-null](img/assigned-null.png)
+
+* Next, `list` is pointed at the memory location to where `n` points. `n` and `list` now point to the same place.
+
+![list-point-n](img/list-point-n.png)
+
+* A new node is then created. Both the `number` and `next` field are both filled with garbage values.
+
+![new-node](img/new-node.png)
+
+* The `number` value of `n`'s node (the new node) is updated to 2.
+
+![updated-node](img/updated-node.png)
+
+* Also, the `next` field is updated as well to `NULL`.
+
+![field-updated](img/field-updated.png)
+
+* Most important, we do not want to lose our connection to any of these nodes lest they be lost forever. Accordingly, `n`'s `next` field is pointed to the same memory location as`list`
+
+![pointed-to-list](img/pointed-to-list.png)
+
+* Finally, `list` is updated to point at `n`. We now have a linked list of two items.
+
+![list-updated](img/list-updated.png)
+
+* To implement this in code, modify your code as follows:
+
+```C
+// Prepends numbers to a linked list, using while loop to print 
+#include <cs50.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct node 
+{
+    int number;
+    struct node *next;
+} node;
+
+int main(int argc, char *argv[])
+{
+    //Memory for numbers
+    node *list = NULL;
+
+    //for each command lune argument
+    for (int i = 1; i < argc; i++) {
+        //convert argument to int
+        int number = atoi(argv[i]);
+        
+        //allocate node for number
+        node *n = malloc(sizeof(node));
+        if(n == NULL){
+            return 1;
+        }
+        n->number = number;
+        n->next = NULL;
+
+        //Prepend node to list
+        n->next = list;
+        list = n;
+    }
+
+    //print numbers
+    node *ptr = list;
+    while (ptr != NULL) {
+        printf("%i\n", ptr->number);
+        ptr = ptr->next;
+    }
+
+    ptr = list;
+    while (ptr != NULL) {
+        node *next = ptr->next;
+        free(next);
+        ptr = next;
+    }
+}
+```
+
+Notice that what the user inputs at the command line is put into the `number` field of a node called `n`, and then that node is added to the `list`. For example, `./list 1 2` will put the number `1` into the `number` field of a node called `n`, then put a pointer to `list` into the `next` field of the node, and then update `list` to point to `n`. That same process is repeated for `2`. Next, `node *ptr = list` creates a temporary variable that points at the same spot that `list` points to. The `while` prints what at the node `ptr` points to, and then updates `ptr` to point to the `next` node in the list. Finally, all the memory is freed.
+
+* n this example, inserting into the list is always in the order of `O(1)`, as it only takes a very small number of steps to insert at the front of a list.
+* Considering the amount of time required to search this list, it is in the order of `O(n)`, as in the worst case the entire list must always be searched to find an item. The time complexity for adding a new element to the list will depend on where that element is added. This illustrated in the examples below.
+* Linked lists are not stored in a contiguous block of memory. They can grow as large as you wish, provided that enough system resources exist. The downside, however, is that memory is required to keep track of the list instead of the array. This is because for each element, you must store not just the value of the element, but also a pointer to the next node. Further, linked lists cannot be indexed into like is possible in an array because we need to pass through the first `n - 1` elements to find the location of the `n`th element. Because of this, the list pictured above must be linearly searched. Binary search, therefore, is not possible in a list constructed as above.
+* Further, you could place numbers at the end of the list as illustrated in this code:
+
+```C
+// Implements a list of numbers using a linked list
+#include <cs50.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct node 
+{
+    int number;
+    struct node *next;
+} node;
+
+int main(int argc, char *argv[])
+{
+    //Memory for numbers
+    node *list = NULL;
+
+    //for each command lune argument
+    for (int i = 1; i < argc; i++) {
+        //convert argument to int
+        int number = atoi(argv[i]);
+        
+        //allocate node for number
+        node *n = malloc(sizeof(node));
+        if(n == NULL){
+            return 1;
+        }
+        n->number = number;
+        n->next = NULL;
+        if (list == NULL) {
+            //this node is the whole list
+            list = n;
+        }else {// if list has numbers already
+            //iterate over nodes in list
+            for (node *ptr = list; ptr != NULL; ptr = ptr->next) {
+                if (ptr->next == NULL) {
+                    ptr->next = n;
+                    break;
+                }
+            }
+        }
+    }
+
+    //print numbers
+    for (node *ptr = list; ptr != NULL; ptr = ptr->next) {
+        printf("%i\n", ptr->number);
+    }
+
+    // free memory
+    node *ptr = list;
+    while (ptr != NULL) {
+        node *next = ptr->next;
+        free(ptr);
+        ptr = next;
+    }
+}
+```
+
+Notice how this code *walks down*  this list to find the end. When appending an element, (adding to the end of the list) our code will run in `O(n)`, as we have to go through our entire list before we can add the final element.
+
+* Further, you could sort your list as items are added:
+
+```C
+
+// Implements a list of numbers using a linked list
+#include <cs50.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct node 
+{
+    int number;
+    struct node *next;
+} node;
+
+int main(int argc, char *argv[])
+{
+    //Memory for numbers
+    node *list = NULL;
+
+    //for each command lune argument
+    for (int i = 1; i < argc; i++) {
+        //convert argument to int
+        int number = atoi(argv[i]);
+        
+        //allocate node for number
+        node *n = malloc(sizeof(node));
+        if(n == NULL){
+            return 1;
+        }
+        n->number = number;
+        n->next = NULL;
+        if (list == NULL) {
+            //this node is the whole list
+            list = n;
+        }else if (n->number < list->number) {//if number belongs at beginning of list
+            n->next = list;
+            list = n;
+        } else {//if number belongs later in list
+            //iterate over nodes in list 
+            for (node *ptr = list; ptr != NULL; ptr = ptr->next) {
+                //if at end of list
+                if (ptr->next == NULL) {
+                    //append node
+                    ptr->next = n;
+                    break;
+                } 
+
+                if (n->number < ptr->next->number) {
+                    n->next = ptr->next;
+                    ptr->next = n;
+                    break;
+                } 
+            }
+        }
+    }
+
+    //print numbers
+    for (node *ptr = list; ptr != NULL; ptr = ptr->next) {
+        printf("%i\n", ptr->number);
+    }
+
+    // free memory
+    node *ptr = list;
+    while (ptr != NULL) {
+        node *next = ptr->next;
+        free(ptr);
+        ptr = next;
+    }
+}
+```
+
+Notice how this list is sorted as it build. To insert an element in this specific order, our code will still run in `O(n)` for each insertion, as in the worst case we will have to look through all curent elements.
