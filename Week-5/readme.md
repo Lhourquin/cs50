@@ -542,3 +542,80 @@ Notice this search function begins by going to the location of `tree`. Then, it 
 
 * A tree like the above dynamism that an array does not offer. It can grow and shrink as we wish.
 * Further, this structure offers a search time of `O(logn)`
+
+## Dictionaries
+
+* *Dictionaries* are another data structure.
+* Dictionaries, like actual book-form dictionaries that have a word and a definition, have a *key* and a *value*.
+* The *holy grail*  of algorithmic time complexity is `O(1)` or *constant time*. That is, the ultimate is for access to be instantaneous.
+
+![complexity](img/complexity.png)
+
+* Dictionaries can offer this speed of access through hashing.
+
+## Hashing and Hash Tables
+
+* *Hashing* is the idea of taking a value and being able to output a value that becomes a shortcut to it later.
+* For example, hashing *apple* may hash as a value of `1`, and *berry* may be hashed as `2`. Therefore, finding *apple* is as easy as asking the *hash*  algorithm were *apple* is stored. While not ideal in terms of design, ultimately, putting all *a*'s in one bucket and *b'*s in another, this concept of *bucketizing* hashed values illustrates how you can use this concept: a hashed value can be used to shortcut finding such a value.
+* A *hash function* is an algorithm that reduces a larger value to something small and predictable. Generally, this function takes in an item you wish to add to your hash table, and returns an integer representing the array index in which the item should be placed.
+* A *hash table* is a fantastic combination of both arrays and linked lists. When implemented in code, a hash table is an *array*  of *pointers*  to *nodes*.
+* A hash table could be imagined as follows:
+
+![hash-table](img/hash-table.png)
+
+Notice that this is an array that is assigned each value of the alphabet.
+
+* Then, at each location of the array, a linked list is used to track each value being stored there:
+
+![value-stored-hash-table](img/value-stored-hash-table.png)
+
+* *Collisions*  are when you add values to the hash table, and something already exists at the hashed location. In the above, collisions are simply appended to the end of the list.
+* Collisions can be reduced by better programming your hash table and hash algorithm. You can imagine an improvement upon the above as follows:
+
+![hash-table-improved](img/hash-table-improved.png)
+
+* Consider the following example of a hash algorithm:
+
+![luigi-hash](img/luigi-hash.png)
+
+* This could be implemented in code as:
+
+```C
+#include <ctype.h>
+unsigned int hash(const char *word)
+{
+    return toupper(word[0]) - 'A';
+}
+```
+
+Notice how the hash function returns the value of `toupper(word[0]) - 'A'`
+
+* You, as the programmer, have to make a decision about the advantages of using more memory to have a large hash table and potentially reducing search time or using less memory and potentially increasing search time.
+
+## Tries
+
+* *Tries* are another form of data structure.
+* *Tries*  are always searchable in constant time.
+* One downside to *Tries*  is that they tend to take up a large amount of memory. Notice that we need **26 X 4 = 104** `node`'s just to sotre *Toad* !
+* *Toad*  would be stored as follows:
+
+![toad-in-trie](img/toad-in-trie.png)
+
+* *Tom*  would then be stored as follows:
+
+![tom-in-trie](img/tom-in-trie.png)
+
+* The downside of this structure is how many resources are required to use it.
+
+## Summing Up
+
+In this lesson, you learned about using pointers to build new data structures. Specifically, we delved into…
+
+* Data structures
+* Stacks and queues
+* Resizing arrays
+* Linked lists
+* Dictionaries
+* Tries
+
+[Source: Week 5](https://cs50.harvard.edu/x/2024/notes/5/)
