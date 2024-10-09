@@ -117,8 +117,8 @@ Started the 7 October of 2024
 * [x] Jack Learns the Facts
 * [x] Resizing Arrays
 * [x] Linked Lists
-* [] Trees
-* [] Dictionaries
-* [] Hashing and Hash Tables
-* [] Tries
-* [] Summing Up
+* [X] Trees
+* [x] Dictionaries
+* [x] Hashing and Hash Tables
+* [x] Tries
+* [x] Summing Up
